@@ -65,6 +65,23 @@ int main() {
 }
 
 //lab1.6
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	float dollar, funt, frank, nm, yen;
+	cout << "Введите сумму в долларах" << endl;
+	cin >> dollar;
+	funt = 0.672 * dollar;
+	frank = 5.814 * dollar;
+	nm = 1.512 * dollar;
+	yen = 104.712 * dollar;
+	cout << funt << " funts" << endl;
+	cout << frank << " franks" << endl;
+	cout << nm << " nms" << endl;
+	cout << yen << " yens" << endl;
+}
+
 //lab1.7
 //lab1.8
 //lab1.9
