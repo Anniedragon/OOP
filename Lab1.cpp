@@ -52,6 +52,18 @@ int main() {
 }
 
 //lab1.5
+#include <iostream>
+#include <ctype.h>
+using namespace std;
+int main() {
+	char letter;
+	setlocale(LC_ALL, "Russian");
+	cout << "Введите строчную или заглавную букву" << endl;
+	cin >> letter;
+	cout << islower(letter) << endl;
+	return 0;
+}
+
 //lab1.6
 //lab1.7
 //lab1.8
