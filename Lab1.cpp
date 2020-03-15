@@ -83,6 +83,17 @@ int main() {
 }
 
 //lab1.7
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	float celcium, fahrenhiet;
+	cout << "Введите температуру в градусах Цельсия" << endl;
+	cin >> celcium;
+	fahrenhiet = 1.8 * celcium + 32;
+	cout << fahrenhiet << "*F";
+}
+
 //lab1.8
 //lab1.9
 //lab1.10
