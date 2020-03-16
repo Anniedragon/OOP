@@ -117,5 +117,23 @@ int main() {
 }
 
 //lab1.10
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	float pound, shilling, pen;
+	cout << "Enter the amount of pounds: ";
+	cin >> pound;
+	cout << "Enter the amount of shillings: ";
+	cin >> shilling;
+	cout << "Enter the amount of pens: ";
+	cin >> pen;
+	pen += 12 * shilling;
+	pound += pen / 100;
+    cout << pound;
+	return 0;
+}
+
 //lab1.11
 //lab1.12
