@@ -95,7 +95,27 @@ int main() {
 }
 
 //lab1.8
+
+
 //lab1.9
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int chisl1, chisl2, chisl3, znam1, znam2, znam3;
+	cout << "Введите числитель и знаменатель первой дроби" << endl;
+	cin >> chisl1;
+	cin >> znam1;
+	cout << "Введите числитель и знаменатель второй дроби" << endl;
+	cin >> chisl2;
+	cin >> znam2;
+	chisl3 = chisl1 * znam2 + znam1 * chisl2;
+	znam3 = znam1 * znam2;
+	cout << chisl3 << "/" << znam3 << endl;
+	return 0;
+}
+
 //lab1.10
 //lab1.11
 //lab1.12
