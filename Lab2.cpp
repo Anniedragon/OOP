@@ -283,3 +283,56 @@ int main() {
 }
 
 //lab2.12
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	char flag = '+';
+	char oper = '0';
+	char slash;
+	int a, b, c, d, resch, reszn;
+	cout << "Введите первую дробь в формате a/b: ";
+	cin >> a >> slash >> b;
+	cout << "Введите первую дробь в формате c/d: ";
+	cin >> c >> slash >> d;
+	while (flag == '+') {
+		cout << "Выберите действие: сложение(+), вычитание(-), умножение(*), деление(/)" << endl;
+		cin >> oper;
+		switch (oper) {
+		case '+':
+			resch = a * d + b * c;
+			reszn = b * d;
+			cout << resch << "/" << reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '-':
+			resch = a * d - b * c;
+			reszn = b * d;
+			cout << resch << "/" << reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '*':		
+			resch = a * c;
+			reszn = b * d;
+			cout << resch << "/" << reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '/':
+			resch = a * d;
+			reszn = b * c;
+			cout << resch << "/" << reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		default:
+			cout << "Такого дейтвия не существует." << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		}
+	} 
+	return 0;
+}
