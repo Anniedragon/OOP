@@ -171,6 +171,24 @@ int main() {
 }
 
 //lab2.9
+#include <iostream>
+using namespace std;
+int main() {
+	int guest, place, slch, i;
+	slch = 1;
+	setlocale(LC_ALL, "Russian");
+	cout << "Введите количество гостей: " << endl;
+	cin >> guest;
+	cout << "Введите количество мест, большее или равное числу гостей: " << endl;
+	cin >> place;
+	for (i = 0; i < place; i++) {
+		slch *= guest;
+		guest--;
+	}
+	cout << slch << endl;
+	return 0;
+}
+
 //lab2.10
 //lab2.11
 //lab2.12
