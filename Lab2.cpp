@@ -121,6 +121,23 @@ int main()
 }
 
 //lab2.7
+#include <iostream>
+using namespace std;
+int main() {
+	float sum, years, i, percents;
+	cout << "Enter the sum: ";
+	cin >> sum;
+	cout << "Enter the amount of years: ";
+	cin >> years;
+	cout << "Enter percents(%): ";
+	cin >> percents;
+	for (i = 0; i < years; i++) {
+		sum *= (1 + percents / 100);
+	}
+	cout << "Your sum after " << years << " years is: " << sum;
+	return 0;
+}
+
 //lab2.8
 //lab2.9
 //lab2.10
