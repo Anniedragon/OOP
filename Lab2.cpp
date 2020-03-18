@@ -139,6 +139,30 @@ int main() {
 }
 
 //lab2.8
+#include <iostream>
+using namespace std;
+int main() {
+	float pound1, shil1, pen1, pound2, shil2, pen2, s_pound, s_shil, s_pen;
+	s_pound = 0;
+	s_shil = 0;
+	s_pen = 0;
+	setlocale(LC_ALL, "Russian");
+	cout << "Введите первую сумму: ";
+	cin >> pound1 >> shil1 >> pen1;
+	cout << "Введите вторую сумму: ";
+	cin >> pound2 >> shil2 >> pen2;
+	s_pen = pen1 + pen2;
+	if (s_pen > 12) {
+		s_shil += s_pen / 12;
+	}
+	s_shil = shil1 + shil2;
+	if (s_shil > 20) {
+		s_pound += s_shil / 20;
+	}
+	s_pound = pound1 + pound2;
+	cout << s_pound << " " << s_shil << " " << s_pen;
+}
+
 //lab2.9
 //lab2.10
 //lab2.11
