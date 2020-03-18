@@ -84,6 +84,21 @@ int main()
 }
 
 //lab2.5
+#include <iostream>
+#include <iomanip> 
+#include <string>
+using namespace std;
+int main()
+{
+	int i;
+	string s = "x";
+	for (i = 0; i < 20; i++) {
+		cout << setw(20) << s  << endl;
+		s += "x";
+	}
+	return 0;
+}
+
 //lab2.6
 //lab2.7
 //lab2.8
