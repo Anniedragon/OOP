@@ -210,4 +210,76 @@ int main() {
 }
 
 //lab2.11
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	char flag = '+';
+	char oper = '0';
+	int pound1, pound2, shil1, shil2, pen1, pen2, f_pound, f_shil, f_pen, x;
+	while (flag == '+') {
+		f_pen = 0;
+		f_shil = 0;
+		f_pound = 0;
+		cout << "Введите первую сумму: ";
+		cin >> pound1 >> shil1 >> pen1;
+		cout << "Выберите действие: сложение(+), вычитание(-), умножение на число(*)" << endl;
+		cin >> oper;
+		switch (oper) {
+		case '+':
+			cout << "Введите вторую сумму: ";
+			cin >> pound2 >> shil2 >> pen2;
+			f_pen = pen1 + pen2;
+			while (f_pen > 12) {
+				f_shil += f_pen / 12;
+				f_pen -= 12;
+			}
+			f_shil += shil1 + shil2;
+			while (f_shil > 20) {
+				f_pound += f_shil / 20;
+				f_shil -= 20;
+			}
+			f_pound += pound1 + pound2;
+			cout << f_pound << " " << f_shil << " " << f_pen << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '-':
+			cout << "Введите вторую сумму: ";
+			cin >> pound2 >> shil2 >> pen2;
+			f_pen = abs(pen1 - pen2);
+			f_shil = abs(shil1 - shil2);
+			f_pound = abs(pound1 - pound2);
+			cout << f_pound << " " << f_shil << " " << f_pen << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '*':
+			cout << "Введите число, на которое хотите умножить: ";
+			cin >> x;
+			f_pen = pen1 * x;
+			while (f_pen > 12) {
+				f_shil += f_pen / 12;
+				f_pen -= 12;
+			}
+			f_shil += shil1 * x;
+			while (f_shil > 20) {
+				f_pound += f_shil / 20;
+				f_shil -= 20;
+			}
+			f_pound += pound1 * x;
+			cout << f_pound << " " << f_shil << " " << f_pen << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		default:
+			cout << "Такого дейтвия не существует." << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		}
+	} 
+	return 0;
+}
+
 //lab2.12
