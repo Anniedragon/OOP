@@ -44,7 +44,19 @@ int main()
 }
 
 //lab2.3
-
+#include <iostream>
+#include <conio.h> 
+using namespace std;
+int main()
+{
+	char ch;
+	unsigned long total = 0; 
+	cout << "\nEnter a number: ";
+	while ((ch = _getche()) != '\r') 
+		total = total * 10 + ch - '0'; 
+	cout << "\nNumber is: " << total << endl;
+	return 0;
+}
 
 //lab2.4
 #include <iostream>
