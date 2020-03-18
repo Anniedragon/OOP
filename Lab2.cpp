@@ -100,6 +100,26 @@ int main()
 }
 
 //lab2.6
+#include <iostream>
+using namespace std;
+int main()
+{
+	unsigned int numb;
+	unsigned long fact = 1;
+	int flag = 1;
+	while (flag == 1) {
+		cout << "Enter a number: ";
+		cin >> numb;
+		for (int j = numb; j > 0; j--)
+			fact *= j;
+		cout << "Factorial is " << fact << endl;
+		cout << "Do you want to continue? Yes - 1, no - 0" << endl;
+		cin >> flag;
+		fact = 1;
+	}
+	return 0;
+}
+
 //lab2.7
 //lab2.8
 //lab2.9
