@@ -190,5 +190,24 @@ int main() {
 }
 
 //lab2.10
+#include <iostream>
+using namespace std;
+int main() {
+	float sum, sumk, i, percents;
+	int year = 0;
+	cout << "Enter the sum: ";
+	cin >> sum;
+	cout << "Enter the final sum: ";
+	cin >> sumk;
+	cout << "Enter percents(%): ";
+	cin >> percents;
+	while (sum <= sumk) {
+		sum *= (1 + percents / 100);
+		year++;
+	}
+	cout << year;
+	return 0;
+}
+
 //lab2.11
 //lab2.12
