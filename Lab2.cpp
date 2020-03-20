@@ -92,8 +92,8 @@ int main()
 	int i;
 	string s = "x";
 	for (i = 0; i < 20; i++) {
-		cout << setw(20) << s  << endl;
-		s += "xх";
+		cout << setw(40) << s  << endl;
+		s += "xx";
 	}
 	return 0;
 }
