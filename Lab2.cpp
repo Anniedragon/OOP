@@ -93,7 +93,7 @@ int main()
 	string s = "x";
 	for (i = 0; i < 20; i++) {
 		cout << setw(20) << s  << endl;
-		s += "x";
+		s += "xх";
 	}
 	return 0;
 }
