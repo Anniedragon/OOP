@@ -45,7 +45,7 @@ int main()
 	return 0;
 }
 
-//lab3.3
+//lab3.3.1
 #include <iostream>
 using namespace std;
 struct Distance
@@ -69,6 +69,7 @@ int main()
 	cout << "Volume = " << l * w * h << " cubic feet\n";
 	return 0;
 }
+//lab3.3.2
 
 
 //lab3.4
