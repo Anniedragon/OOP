@@ -14,7 +14,6 @@ int main()
 			cout << endl; 
 	}
 	return 0;
-
 }
 
 //lab2.2
