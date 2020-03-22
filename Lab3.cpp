@@ -200,6 +200,139 @@ int main() {
 }
 
 //lab3.7
+#include <iostream>
+#include <string>
+using namespace std;
+struct employee {
+	int number;
+	float salary;
+	string day;
+	string month;
+	int year;
+	string work;
+};
+enum etype { laborer = 1, secretary, manager, accountant, executive, researcher };
+int main() {
+	int position1 = 0;
+	int position2 = 0;
+	int position3 = 0;
+	char slash;
+	employee em1, em2, em3;
+	cout << "Enter the numbers for 3 employees" << endl
+		<< "1st employee: ";
+	cin >> em1.number;
+	cout << "2nd employee: ";
+	cin >> em2.number;
+	cout << "3d employee: ";
+	cin >> em3.number;
+	cout << "\nEnter the salary for 3 employees" << endl
+		<< "1st employee: ";
+	cin >> em1.salary;
+	cout << "2nd employee: ";
+	cin >> em2.salary;
+	cout << "3d employee: ";
+	cin >> em3.salary;
+	cout << "\nEnter, when each of emloyees has started to work in 00/00/0000 format" << endl
+		<< "1st employee: ";
+	cin >> em1.day >> slash >> em1.month >> slash >> em1.year;
+	cout << "2nd employee: ";
+	cin >> em2.day >> slash >> em2.month >> slash >> em2.year;
+	cout << "3d employee: ";
+	cin >> em3.day >> slash >> em3.month >> slash >> em3.year;
+	cout << "\nEnter the position for 3 employees:" << endl
+		<< "laborer - 1, secretary - 2, manager - 3, accountant - 4, executive - 5, researcher - 6" << endl
+		<< "1st employee: ";
+	cin >> position1;
+	cout << "2nd employee: ";
+	cin >> position2;
+	cout << "3d employee: ";
+	cin >> position3;
+	switch (position1) {
+	case laborer:
+		em1.work = "laborer";
+		break;
+	case secretary:
+		em1.work = "secretary";
+		break;
+	case manager:
+		em1.work = "manager";
+		break;
+	case accountant:
+		em1.work = "accountant";
+		break;
+	case executive:
+		em1.work = "executive";
+		break;
+	case researcher:
+		em1.work = "researcher";
+		break;
+	default:
+		cout << "Your position is absent. Try again." << endl;
+		break;
+	}
+	switch (position2) {
+	case laborer:
+		em2.work = "laborer";
+		break;
+	case secretary:
+		em2.work = "secretary";
+		break;
+	case manager:
+		em2.work = "manager";
+		break;
+	case accountant:
+		em2.work = "accountant";
+		break;
+	case executive:
+		em2.work = "executive";
+		break;
+	case researcher:
+		em2.work = "researcher";
+		break;
+	default:
+		cout << "Your position is absent. Try again." << endl;
+		break;
+	}
+	switch (position3) {
+	case laborer:
+		em3.work = "laborer";
+		break;
+	case secretary:
+		em3.work = "secretary";
+		break;
+	case manager:
+		em3.work = "manager";
+		break;
+	case accountant:
+		em3.work = "accountant";
+		break;
+	case executive:
+		em3.work = "executive";
+		break;
+	case researcher:
+		em3.work = "researcher";
+		break;
+	default:
+		cout << "Your position is absent. Try again." << endl;
+		break;
+	}
+	cout << "The full information about the 1st employee." << endl
+		<< "Number: " << em1.number << endl
+		<< "Salary: " << em1.salary << endl
+		<< "Date: " << em1.day << "/" << em1.month << "/" << em1.year << endl
+		<< "Position: " << em1.work << endl;
+	cout << "\nThe full information about the 2nd employee." << endl
+		<< "Number: " << em2.number << endl
+		<< "Salary: " << em2.salary << endl
+		<< "Date: " << em2.day << "/" << em2.month << "/" << em2.year << endl
+		<< "Position: " << em2.work << endl;
+	cout << "\nThe full information about the 3d employee." << endl
+		<< "Number: " << em3.number << endl
+		<< "Salary: " << em3.salary << endl
+		<< "Date: " << em3.day << "/" << em3.month << "/" << em3.year << endl
+		<< "Position: " << em3.work << endl;
+	return 0;
+}
 //lab3.8
 //lab3.9
 //lab3.10
