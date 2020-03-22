@@ -124,6 +124,22 @@ int main() {
 }
 
 //lab3.5
+#include <iostream>
+using namespace std;
+struct date {
+	int day;
+	int month;
+	int year;
+};
+int main() {
+	date d;
+	char slash;
+	cout << "Enter a date in 00/00/0000 format" << endl;
+	cin >> d.day >> slash >> d.month >> slash >> d.year;
+	cout << "\nYour date is: " << d.day << "/" << d.month << "/" << d.year;
+	return 0;
+}
+
 //lab3.6
 //lab3.7
 //lab3.8
