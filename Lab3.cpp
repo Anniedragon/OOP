@@ -141,6 +141,64 @@ int main() {
 }
 
 //lab3.6
+#include <iostream>
+using namespace std;
+enum etype { laborer, secretary, manager, accountant, executive, researcher };
+int main() {
+	int x;
+	char letter;
+	cout << "Enter the 1st letter of the position: ";
+	cin >> letter;
+	switch (letter) {
+	case 'l':
+		x = 0;
+		break;
+	case 's':
+		x = 1;
+		break;
+	case 'm':
+		x = 2;
+		break;
+	case 'a':
+		x = 3;
+		break;
+	case 'e':
+		x = 4;
+		break;
+	case 'r':
+		x = 5;
+		break;
+	default:
+		cout << "Try again" << endl;
+		x = -1;
+		break;
+	}
+	switch (x) {
+	case 0:
+		cout << "The full title is: laborer";
+		break;
+	case 1:
+		cout << "The full title is: secretary";
+		break;
+	case 2:
+		cout << "The full title is: manager";
+		break;
+	case 3:
+		cout << "The full title is: accountant";
+		break;
+	case 4:
+		cout << "The full title is: executive";
+		break;
+	case 5:
+		cout << "The full title is: researcher";
+		break;
+	default:
+		cout << "Try again" << endl;
+		break;
+	}
+	return 0;
+}
+
 //lab3.7
 //lab3.8
 //lab3.9
