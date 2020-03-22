@@ -206,8 +206,8 @@ using namespace std;
 struct employee {
 	int number;
 	float salary;
-	string day;
-	string month;
+	int day;
+	int month;
 	int year;
 	string work;
 };
