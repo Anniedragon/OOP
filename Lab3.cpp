@@ -97,6 +97,32 @@ int main()
 }
 
 //lab3.4
+#include <iostream>
+using namespace std;
+struct employee {
+	int number;
+	float allowance;
+};
+int main() {
+	employee em1, em2, em3;
+	cout << "Enter the number and allowance of 1st employee" << endl;
+	cin >> em1.number >> em1.allowance;
+	cout << "Enter the number and allowance of 2nd employee" << endl;
+	cin >> em2.number >> em2.allowance;
+	cout << "Enter the number and allowance of 3d employee" << endl;
+	cin >> em3.number >> em3.allowance;
+	cout << "1st employee" << endl
+		<< "Number: " << em1.number << endl
+		<< "Allowance: " << em1.allowance << endl;
+	cout << "2nd employee" << endl
+		<< "Number: " << em2.number << endl
+		<< "Allowance: " << em2.allowance << endl;
+	cout << "3d employee" << endl
+		<< "Number: " << em3.number << endl
+		<< "Allowance: " << em3.allowance << endl;
+	return 0;
+}
+
 //lab3.5
 //lab3.6
 //lab3.7
