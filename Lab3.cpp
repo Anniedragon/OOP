@@ -375,5 +375,35 @@ int main() {
 }
 
 //lab3.10
+#include <iostream>
+using namespace std;
+struct sterling {
+	int pound;
+	int shilling;
+	int pence;
+};
+int main() {
+	setlocale(LC_ALL, "Russian");
+	sterling st;
+	double des_pound;
+	cout << "Введите сумму в десятичных фунтах в формате 0.00" << endl;
+	cin >> des_pound;
+	st.pound = des_pound / 1;
+	st.shilling = ((des_pound - st.pound) * 100) / 20;
+	st.pence = st.shilling / 12;	
+	while (st.pence > 12) {
+		st.pence /= 12;
+		st.shilling++;
+	}
+	while (st.shilling > 20) {
+		st.shilling += st.shilling /12;
+		st.pound++;
+	}
+	cout << st.pound << " фунтов" << endl
+		<< st.shilling << "шиллингов" << endl
+		<< st.pence << " пенсов" << endl;
+	return 0;
+}
+
 //lab3.11
 //lab3.12
