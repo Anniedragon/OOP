@@ -334,6 +334,26 @@ int main() {
 	return 0;
 }
 //lab3.8
+#include <iostream>
+using namespace std;
+struct fraction {
+	int chisl;
+	int znam;
+};
+int main() {
+	setlocale(LC_ALL, "Russian");
+	fraction fr1, fr2, fr3;
+	char slash;
+	cout << "Введите числитель и знаменатель первой дроби в формате a/b" << endl;
+	cin >> fr1.chisl >> slash >> fr1.znam;
+	cout << "Введите числитель и знаменатель второй дроби в формате c/d" << endl;
+	cin >> fr2.chisl >> slash >> fr2.znam;
+	fr3.chisl = fr1.chisl * fr2.znam + fr1.znam * fr2.chisl;
+	fr3.znam = fr1.znam * fr2.znam;
+	cout << fr3.chisl << "/" << fr3.znam << endl;
+	return 0;
+}
+
 //lab3.9
 //lab3.10
 //lab3.11
