@@ -355,6 +355,25 @@ int main() {
 }
 
 //lab3.9
+#include <iostream>
+using namespace std;
+struct time {
+	int seconds;
+	int minutes;
+	int hours;
+};
+int main() {
+	setlocale(LC_ALL, "Russian");
+	long totalsec = 0;
+	time t;
+	char points;
+	cout << "Введите время в формате 00:00:00" << endl;
+	cin >> t.hours >> points >> t.minutes >> points >> t.seconds;
+	totalsec = t.hours * 3600 + t.minutes * 60 + t.seconds;
+	cout << totalsec << " c.";
+	return 0;
+}
+
 //lab3.10
 //lab3.11
 //lab3.12
