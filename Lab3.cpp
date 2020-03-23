@@ -442,3 +442,62 @@ int main() {
 }
 
 //lab3.12
+#include <iostream>
+using namespace std;
+struct fraction {
+	int chisl;
+	int znam;
+	int resch;
+	int reszn;
+};
+int main() {
+	setlocale(LC_ALL, "Russian");
+	fraction fr, fr1, fr2;
+	char flag = '+';
+	char oper = '0';
+	char slash;
+	while (flag == '+') {
+		cout << "Введите первую дробь в формате a/b: ";
+		cin >> fr1.chisl >> slash >> fr1.znam;
+		cout << "Введите первую дробь в формате c/d: ";
+		cin >> fr2.chisl >> slash >> fr2.znam;
+		cout << "Выберите действие: сложение(+), вычитание(-), умножение(*), деление(/)" << endl;
+		cin >> oper;
+		switch (oper) {
+		case '+':
+			fr.resch = fr1.chisl * fr2.znam + fr1.znam * fr2.chisl;
+			fr.reszn = fr1.znam * fr2.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '-':
+			fr.resch = fr1.chisl * fr2.znam - fr1.znam * fr2.chisl;
+			fr.reszn = fr1.znam * fr2.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '*':
+			fr.resch = fr1.chisl * fr2.chisl;
+			fr.reszn = fr1.znam * fr2.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '/':
+			fr.resch = fr1.chisl * fr2.znam;
+			fr.reszn = fr2.chisl * fr1.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		default:
+			cout << "Такого дейтвия не существует." << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		}
+	}
+	return 0;
+}
