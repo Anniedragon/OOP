@@ -400,7 +400,7 @@ int main() {
 		st.pound++;
 	}
 	cout << st.pound << " фунтов" << endl
-		<< st.shilling << "шиллингов" << endl
+		<< st.shilling << " шиллингов" << endl
 		<< st.pence << " пенсов" << endl;
 	return 0;
 }
