@@ -396,7 +396,7 @@ int main() {
 		st.shilling++;
 	}
 	while (st.shilling > 20) {
-		st.shilling += st.shilling /12;
+		st.shilling = st.shilling /12;
 		st.pound++;
 	}
 	cout << st.pound << " фунтов" << endl
