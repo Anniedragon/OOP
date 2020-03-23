@@ -406,4 +406,39 @@ int main() {
 }
 
 //lab3.11
+#include <iostream>
+using namespace std;
+struct time {
+	int seconds;
+	int minutes;
+	int hours;
+};
+int main() {
+	setlocale(LC_ALL, "Russian");
+	long totalsecsum;
+	time t1, t2, t3;
+	char points;
+	float des_hours;
+	bool pr = false;
+	int k = 10;
+	cout << "Введите время1 в формате 00:00:00" << endl;
+	cin >> t1.hours >> points >> t1.minutes >> points >> t1.seconds;
+	cout << "Введите время2 в формате 00:00:00" << endl;
+	cin >> t2.hours >> points >> t2.minutes >> points >> t2.seconds;
+	totalsecsum = t1.hours * 3600 + t1.minutes * 60 + t1.seconds + t2.hours * 3600 + t2.minutes * 60 + t2.seconds;
+	t3.minutes = totalsecsum / 60;
+	t3.hours = totalsecsum / 3600;
+	t3.seconds = (t3.hours * 3600 + t3.minutes * 60) - totalsecsum;
+	while (t3.seconds >= 60) {
+		t3.seconds /= 60;
+		t3.minutes++;
+	}
+	while (t3.minutes >= 60) {
+		t3.minutes = t3.minutes / 60;
+		t3.hours++;
+	}
+	cout << t3.hours << " ч. " << t3.minutes << " мин. " << t3.seconds << " с.";
+	return 0;
+}
+
 //lab3.12
