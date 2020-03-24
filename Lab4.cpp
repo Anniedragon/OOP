@@ -106,6 +106,26 @@ void engldisp(Distance dd)
 }
 
 //lab4.5
+#include <iostream>
+using namespace std;
+struct time {
+	int hours;
+	int minutes;
+	int seconds;
+};
+int hms_to_secs(int h, int m, int s);
+int main() {
+	time t;
+	char points;
+	cout << "Enter the time in 00:00:00 format." << endl;
+	cin >> t.hours >> points >> t.minutes >> points >> t.seconds;
+	cout << hms_to_secs(t.hours, t.minutes, t.seconds) << " sec." << endl;
+	return 0;
+}
+int hms_to_secs(int h, int m, int s) {
+	return h * 3600 + m * 60 + s;
+}
+
 //lab4.6
 //lab4.7
 //lab4.8
