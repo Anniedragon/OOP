@@ -45,6 +45,27 @@ double power(double n, int p) {
 }
 
 //lab4.3
+#include <iostream>
+using namespace std;
+int main()
+{
+	void zeroSmaller(int&, int&);
+	setlocale(LC_ALL, "Russian");
+	int а = 4, б = 7, в = 11, г = 9;
+	zeroSmaller(а, б);
+	zeroSmaller(в, г);
+	cout << "\na == " << а << " б == " << б
+		<< " в == " << в << " г == " << г;
+	return 0;
+}
+void zeroSmaller(int& first, int& second)
+{
+	if (first < second)
+		first = 0;
+	else
+		second = 0;
+}
+
 //lab4.4
 //lab4.5
 //lab4.6
