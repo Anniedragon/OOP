@@ -113,7 +113,7 @@ struct time {
 	int minutes;
 	int seconds;
 };
-int hms_to_secs(int h, int m, int s);
+long hms_to_secs(int h, int m, int s);
 int main() {
 	time t;
 	char points;
@@ -122,7 +122,7 @@ int main() {
 	cout << hms_to_secs(t.hours, t.minutes, t.seconds) << " sec." << endl;
 	return 0;
 }
-int hms_to_secs(int h, int m, int s) {
+long hms_to_secs(int h, int m, int s) {
 	return h * 3600 + m * 60 + s;
 }
 
