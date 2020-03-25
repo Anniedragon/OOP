@@ -127,6 +127,49 @@ long hms_to_secs(int h, int m, int s) {
 }
 
 //lab4.6
+#include <iostream>
+using namespace std;
+struct time {
+	int seconds;
+	int minutes;
+	int hours;
+};
+long time_to_secs(int h, int m, int s);
+int secs_to_time(long ts);
+int main() {
+	setlocale(LC_ALL, "Russian");
+	long totalsecsum;
+	time t1, t2, t3;
+	char points;
+	float des_hours;
+	bool pr = false;
+	int k = 10;
+	cout << "Введите время1 в формате 00:00:00" << endl;
+	cin >> t1.hours >> points >> t1.minutes >> points >> t1.seconds;
+	cout << "Введите время2 в формате 00:00:00" << endl;
+	cin >> t2.hours >> points >> t2.minutes >> points >> t2.seconds;
+	totalsecsum = time_to_secs(t1.hours, t1.minutes, t1.seconds) + time_to_secs(t2.hours, t2.minutes, t2.seconds);
+	t3.minutes = secs_to_time(totalsecsum);
+	t3.hours = secs_to_time(totalsecsum) / 60;
+	t3.seconds = (t3.hours * 3600 + t3.minutes * 60) - totalsecsum;
+	while (t3.seconds >= 60) {
+		t3.seconds /= 60;
+		t3.minutes++;
+	}
+	while (t3.minutes >= 60) {
+		t3.minutes = t3.minutes / 60;
+		t3.hours++;
+	}
+	cout << t3.hours << " ч. " << t3.minutes << " мин. " << t3.seconds << " с.";
+	return 0;
+}
+long time_to_secs(int h, int m, int s) {
+	return h * 3600 + m * 60 + s;
+}
+int secs_to_time(long ts) {
+	return ts / 60;
+}
+
 //lab4.7
 //lab4.8
 //lab4.9
