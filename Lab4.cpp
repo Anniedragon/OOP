@@ -170,7 +170,68 @@ int secs_to_time(long ts) {
 	return ts / 60;
 }
 
-//lab4.7
+//lab4.7 IN PROGRESS!
+#include <iostream>
+using namespace std;
+struct znach {
+	int zn1;
+	long zn2;
+	float zn3;
+	char zn4;
+};
+int power1(int zn, int p);
+long power2(long zn, int p);
+float power3(float zn, int p);
+char power4(char zn, int p);
+int main() {
+	setlocale(LC_ALL, "Russian");
+	znach z;
+	int st;
+	cout << "Введите число: ";
+	cin >> z.zn1;
+	cout << "Введите большое число: ";
+	cin >> z.zn2;
+	cout << "Введите десятичную дробь: ";
+	cin >> z.zn3;
+	cout << "Введите символ: ";
+	cin >> z.zn4;
+	cout << "Введите степень: ";
+	cin >> st;
+	cout << "\n" << power1(z.zn1, st) << endl
+		<< power2(z.zn2, st) << endl
+		<< power3(z.zn3, st) << endl
+		<< power4(z.zn4, st) << endl;
+	return 0;
+}
+int power1(int zn, int p) {
+	int result = 1;
+	for (int i = 0; i < p; i++) {
+		result *= zn;
+	}
+	return result;
+}
+long power2(long zn, int p) {
+	long result = 1;
+	for (int i = 0; i < p; i++) {
+		result *= zn;
+	}
+	return result;
+}
+float power3(float zn, int p) {
+	float result = 1.0;
+	for (int i = 0; i < p; i++) {
+		result *= zn;
+	}
+	return result;
+}
+char power4(char zn, int p) {
+	char result = zn;
+	for (int i = 0; i < p; i++) {
+		result *= zn;
+	}
+	return result;
+}
+
 //lab4.8
 //lab4.9
 //lab4.10
