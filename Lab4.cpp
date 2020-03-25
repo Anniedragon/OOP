@@ -170,7 +170,7 @@ int secs_to_time(long ts) {
 	return ts / 60;
 }
 
-//lab4.7 IN PROGRESS!
+//lab4.7 
 #include <iostream>
 using namespace std;
 struct znach {
