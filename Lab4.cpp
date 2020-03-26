@@ -354,3 +354,78 @@ int ster_cout(int arg) {
 }
 
 //lab4.12
+#include <iostream>
+using namespace std;
+struct fraction {
+	int chisl;
+	int znam;
+	int resch;
+	int reszn;
+};
+int fadd(int arg1, int arg2, int arg3, int arg4);
+int fsub(int arg1, int arg2, int arg3, int arg4);
+int fmul(int arg1, int arg2);
+int fdiv(int arg1, int arg2);
+int main() {
+	setlocale(LC_ALL, "Russian");
+	fraction fr, fr1, fr2;
+	char flag = '+';
+	char oper = '0';
+	char slash;
+	while (flag == '+') {
+		cout << "Введите первую дробь в формате a/b: ";
+		cin >> fr1.chisl >> slash >> fr1.znam;
+		cout << "Введите первую дробь в формате c/d: ";
+		cin >> fr2.chisl >> slash >> fr2.znam;
+		cout << "Выберите действие: сложение(+), вычитание(-), умножение(*), деление(/)" << endl;
+		cin >> oper;
+		switch (oper) {
+		case '+':
+			fr.resch = fadd(fr1.chisl, fr2.znam, fr1.znam, fr2.chisl);
+			fr.reszn = fr1.znam * fr2.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '-':
+			fr.resch = fsub(fr1.chisl, fr2.znam, fr1.znam, fr2.chisl);
+			fr.reszn = fr1.znam * fr2.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '*':
+			fr.resch = fmul(fr1.chisl, fr2.chisl);
+			fr.reszn = fr1.znam * fr2.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		case '/':
+			fr.resch = fdiv(fr1.chisl, fr2.znam);
+			fr.reszn = fr2.chisl * fr1.znam;
+			cout << fr.resch << "/" << fr.reszn << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		default:
+			cout << "Такого дейтвия не существует." << endl;
+			cout << "Хотите продолжить? (+/-)" << endl;
+			cin >> flag;
+			break;
+		}
+	}
+	return 0;
+}
+int fadd(int arg1, int arg2, int arg3, int arg4) {
+	return arg1 * arg2 + arg3 * arg4;
+}
+int fsub(int arg1, int arg2, int arg3, int arg4) {
+	return arg1 * arg2 - arg3 * arg4;
+}
+int fmul(int arg1, int arg2) {
+	return arg1 * arg2;
+}
+int fdiv(int arg1, int arg2) {
+	return arg1 * arg2;
+}
