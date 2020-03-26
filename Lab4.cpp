@@ -258,6 +258,48 @@ string swap(string arg1, string arg2) {
 }
 
 //lab4.9
+#include <iostream>
+#include <string>
+using namespace std;
+struct time {
+	string hours;
+	string minutes;
+	string seconds;
+};
+string swap(string arg1, string arg2);
+int main() {
+	setlocale(LC_ALL, "Russian");
+	time t1, t2;
+	string time1, time2;
+	cout << "Enter 1st time." << endl;
+	cout << "Enter hours: ";
+	cin >> t1.hours;
+	cout << "Enter minutes: ";
+	cin >> t1.minutes;
+	cout << "Enter seconds: ";
+	cin >> t1.seconds;
+	cout << "Enter 2nd number." << endl;
+	cout << "Enter hours: ";
+	cin >> t2.hours;
+	cout << "Enter minutes: ";
+	cin >> t2.minutes;
+	cout << "Enter seconds: ";
+	cin >> t2.seconds;
+	time1 = t1.hours + ":" + t1.minutes + ":" + t1.seconds;
+	time2 = t2.hours + ":" + t2.minutes + ":" + t2.seconds;
+	cout << "\n" << swap(time1, time2);
+	return 0;
+}
+string swap(string arg1, string arg2) {
+	string temp = "0";
+	string result;
+	temp = arg1;
+	arg1 = arg2;
+	arg2 = temp;
+	result = arg1 + "   " + arg2;
+	return result;
+}
+
 //lab4.10
 //lab4.11
 //lab4.12
