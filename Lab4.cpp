@@ -233,6 +233,30 @@ char power4(char zn, int p) {
 }
 
 //lab4.8
+#include <iostream>
+#include <string>
+using namespace std;
+string swap(string arg1, string arg2);
+int main() {
+	setlocale(LC_ALL, "Russian");
+	string a, b;
+	cout << "Enter 1st number: ";
+	cin >> a;
+	cout << "Enter 2nd number: ";
+	cin >> b;
+	cout << swap(a, b);
+	return 0;
+}
+string swap(string arg1, string arg2) {
+	string temp = "0";
+	string result;
+	temp = arg1;
+	arg1 = arg2;
+	arg2 = temp;
+	result = arg1 + " " + arg2;
+	return result;
+}
+
 //lab4.9
 //lab4.10
 //lab4.11
