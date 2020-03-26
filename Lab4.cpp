@@ -302,4 +302,43 @@ string swap(string arg1, string arg2) {
 
 //lab4.10
 //lab4.11
+#include <iostream>
+using namespace std;
+struct sterling {
+	int pounds;
+	int shillings;
+	int pence;
+};
+void ster_useless(sterling sum);
+int ster_sum(int sum1, int sum2);
+int ster_cout(int arg);
+int main() {
+	sterling st1, st2, stsum;
+	cout << "Enter the first sum: ";
+	cin >> st1.pounds >> st1.shillings >> st1.pence;
+	cout << "Enter the second sum: ";
+	cin >> st2.pounds >> st2.shillings >> st2.pence;
+	stsum.pounds = ster_sum(st1.pounds, st2.pounds);
+	stsum.shillings = ster_sum(st1.shillings, st2.shillings);
+	stsum.pence = ster_sum(st1.pence, st2.pence);
+	while (stsum.pence > 12) {
+		stsum.shillings += stsum.pence / 12;
+		stsum.pence -= 12;
+	}
+	while (stsum.shillings > 20) {
+		stsum.pounds += stsum.shillings / 20;
+		stsum.shillings -= 20;
+	}
+	cout << ster_cout(stsum.pounds) << " " << ster_cout(stsum.shillings) << " " << ster_cout(stsum.pence) << endl;
+	return 0;
+}
+void ster_useless(sterling sum) {
+}
+int ster_sum(int sum1, int sum2) {
+	return sum1 + sum2;
+}
+int ster_cout(int arg) {
+	return arg;
+}
+
 //lab4.12
