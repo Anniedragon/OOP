@@ -301,6 +301,18 @@ string swap(string arg1, string arg2) {
 }
 
 //lab4.10
+#include <iostream>
+using namespace std;
+int function(int arg);
+int main() {
+	for (int i = 0; i < 11; i++) {
+		cout << function(i) << endl;
+	}
+}
+int function(int arg) {
+	return arg;
+}
+
 //lab4.11
 #include <iostream>
 using namespace std;
