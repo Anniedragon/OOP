@@ -285,14 +285,19 @@ void swap(time& arg1, time& arg2) {
 //lab4.10
 #include <iostream>
 using namespace std;
-int function(int arg);
+void function(int& arg);
 int main() {
-	for (int i = 0; i < 11; i++) {
-		cout << function(i) << endl;
+	int N;
+	int ch = 1;
+	cout << "Enter the number: ";
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		function(ch);
 	}
 }
-int function(int arg) {
-	return arg;
+void function(int& arg) {
+	cout << "Function was called " << arg << " times" << endl;
+	arg++;
 }
 
 //lab4.11
