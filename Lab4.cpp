@@ -294,6 +294,7 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		function(ch);
 	}
+	return 0;
 }
 void function(int& arg) {
 	cout << "Function was called " << arg << " times" << endl;
