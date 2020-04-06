@@ -115,7 +115,51 @@ int main() {
 	return 0;
 }
 
-//lab5.4
+//lab5.4 IN PROGRESS
+#include <iostream>
+using namespace std;
+class employee {
+public:
+	int num;
+	float allow;
+	employee() : num(0), allow(0.0) {
+	}
+	employee(int n, float a) : num(n), allow(a) {
+	}
+	void display() const {
+		cout << "Number: " << num << endl
+			<< "Allowance: " << allow << endl;
+	}
+};
+int main() {
+	const employee em1(1, 67000);
+	const employee em2(2, 120000);
+	const employee em3(3, 45000);
+	/*cout << "Enter the number and allowance of 1st employee" << endl;
+	cin >> num;
+	cin >> allow;*/
+	cout << "1st employee" << endl;
+	em1.display();
+	cout << "\n2nd employee" << endl;
+	em2.display();
+	cout << "\n3d employee" << endl;
+	em3.display();
+	/*cout << "Enter the number and allowance of 2nd employee" << endl;
+	cin >> em2.number >> em2.allowance;
+	cout << "Enter the number and allowance of 3d employee" << endl;
+	cin >> em3.number >> em3.allowance;
+	cout << "1st employee" << endl
+		<< "Number: " << em1.number << endl
+		<< "Allowance: " << em1.allowance << endl;
+	cout << "2nd employee" << endl
+		<< "Number: " << em2.number << endl
+		<< "Allowance: " << em2.allowance << endl;
+	cout << "3d employee" << endl
+		<< "Number: " << em3.number << endl
+		<< "Allowance: " << em3.allowance << endl;*/
+	return 0;
+}
+
 //lab5.5
 //lab5.6
 //lab5.7
