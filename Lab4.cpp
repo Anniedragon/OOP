@@ -309,11 +309,11 @@ struct sterling {
 	int shillings;
 	int pence;
 };
-sterling st1, st2, s1, s2, stsum;
 sterling ster_cin(sterling st);
 sterling ster_sum(sterling sum1, sterling sum2);
 void ster_cout(sterling arg);
 int main() {
+	sterling st1, st2, s1, s2, stsum;
 	st1 = ster_cin(s1);
 	st2 = ster_cin(s2);
 	stsum = ster_sum(st1, st2);
