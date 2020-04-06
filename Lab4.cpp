@@ -309,36 +309,39 @@ struct sterling {
 	int shillings;
 	int pence;
 };
-void ster_useless(sterling sum);
-int ster_sum(int sum1, int sum2);
-int ster_cout(int arg);
+sterling st1, st2, s1, s2, stsum;
+sterling ster_cin(sterling st);
+sterling ster_sum(sterling sum1, sterling sum2);
+void ster_cout(sterling arg);
 int main() {
-	sterling st1, st2, stsum;
-	cout << "Enter the first sum: ";
-	cin >> st1.pounds >> st1.shillings >> st1.pence;
-	cout << "Enter the second sum: ";
-	cin >> st2.pounds >> st2.shillings >> st2.pence;
-	stsum.pounds = ster_sum(st1.pounds, st2.pounds);
-	stsum.shillings = ster_sum(st1.shillings, st2.shillings);
-	stsum.pence = ster_sum(st1.pence, st2.pence);
-	while (stsum.pence > 12) {
-		stsum.shillings += stsum.pence / 12;
-		stsum.pence -= 12;
-	}
-	while (stsum.shillings > 20) {
-		stsum.pounds += stsum.shillings / 20;
-		stsum.shillings -= 20;
-	}
-	cout << ster_cout(stsum.pounds) << " " << ster_cout(stsum.shillings) << " " << ster_cout(stsum.pence) << endl;
+	st1 = ster_cin(s1);
+	st2 = ster_cin(s2);
+	stsum = ster_sum(st1, st2);
+	ster_cout(stsum);
 	return 0;
 }
-void ster_useless(sterling sum) {
+sterling ster_cin(sterling st) {
+	cout << "Enter sum in pounds, shillings and pence" << endl;
+	cin >> st.pounds >> st.shillings >> st.pence;
+	return st;
 }
-int ster_sum(int sum1, int sum2) {
-	return sum1 + sum2;
+sterling ster_sum(sterling s1, sterling s2) {
+	sterling sum;
+	sum.pence = s1.pence + s2.pence;
+	sum.shillings = s1.shillings + s2.shillings;
+	sum.pounds = s1.pounds + s2.pounds;
+	while (sum.pence > 12) {
+		sum.shillings += sum.pence / 12;
+		sum.pence -= 12;
+	}
+	while (sum.shillings > 20) {
+		sum.pounds += sum.shillings / 20;
+		sum.shillings -= 20;
+	}
+	return sum;
 }
-int ster_cout(int arg) {
-	return arg;
+void ster_cout(sterling sum) {
+	cout << sum.pounds << " " << sum.shillings << " " << sum.pence << endl;
 }
 
 //lab4.12
