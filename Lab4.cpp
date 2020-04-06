@@ -353,10 +353,11 @@ struct fraction {
 	int resch;
 	int reszn;
 };
-int fadd(int arg1, int arg2, int arg3, int arg4);
-int fsub(int arg1, int arg2, int arg3, int arg4);
-int fmul(int arg1, int arg2);
-int fdiv(int arg1, int arg2);
+fraction fadd(fraction arg1, fraction arg2);
+fraction fsub(fraction arg1, fraction arg2);
+fraction fmul(fraction arg1, fraction arg2);
+fraction fdiv(fraction arg1, fraction arg2);
+void fcout(fraction f);
 int main() {
 	setlocale(LC_ALL, "Russian");
 	fraction fr, fr1, fr2;
@@ -372,30 +373,26 @@ int main() {
 		cin >> oper;
 		switch (oper) {
 		case '+':
-			fr.resch = fadd(fr1.chisl, fr2.znam, fr1.znam, fr2.chisl);
-			fr.reszn = fr1.znam * fr2.znam;
-			cout << fr.resch << "/" << fr.reszn << endl;
+			fr = fadd(fr1, fr2);
+			fcout(fr);
 			cout << "Хотите продолжить? (+/-)" << endl;
 			cin >> flag;
 			break;
 		case '-':
-			fr.resch = fsub(fr1.chisl, fr2.znam, fr1.znam, fr2.chisl);
-			fr.reszn = fr1.znam * fr2.znam;
-			cout << fr.resch << "/" << fr.reszn << endl;
+			fr = fsub(fr1, fr2);
+			fcout(fr);
 			cout << "Хотите продолжить? (+/-)" << endl;
 			cin >> flag;
 			break;
 		case '*':
-			fr.resch = fmul(fr1.chisl, fr2.chisl);
-			fr.reszn = fr1.znam * fr2.znam;
-			cout << fr.resch << "/" << fr.reszn << endl;
+			fr = fmul(fr1, fr2);
+			fcout(fr);
 			cout << "Хотите продолжить? (+/-)" << endl;
 			cin >> flag;
 			break;
 		case '/':
-			fr.resch = fdiv(fr1.chisl, fr2.znam);
-			fr.reszn = fr2.chisl * fr1.znam;
-			cout << fr.resch << "/" << fr.reszn << endl;
+			fr = fdiv(fr1, fr2);
+			fcout(fr);
 			cout << "Хотите продолжить? (+/-)" << endl;
 			cin >> flag;
 			break;
@@ -408,15 +405,30 @@ int main() {
 	}
 	return 0;
 }
-int fadd(int arg1, int arg2, int arg3, int arg4) {
-	return arg1 * arg2 + arg3 * arg4;
+fraction fadd(fraction f1, fraction f2) {
+	fraction f;
+	f.resch = f1.chisl * f2.znam + f2.chisl * f1.znam;
+	f.reszn = f1.znam * f2.znam;
+	return f;
 }
-int fsub(int arg1, int arg2, int arg3, int arg4) {
-	return arg1 * arg2 - arg3 * arg4;
+fraction fsub(fraction f1, fraction f2) {
+	fraction f;
+	f.resch = f1.chisl * f2.znam - f2.chisl * f1.znam;
+	f.reszn = f1.znam * f2.znam;
+	return f;
 }
-int fmul(int arg1, int arg2) {
-	return arg1 * arg2;
+fraction fmul(fraction f1, fraction f2) {
+	fraction f;
+	f.resch = f1.chisl * f2.chisl;
+	f.reszn = f1.znam * f2.znam;
+	return f;
 }
-int fdiv(int arg1, int arg2) {
-	return arg1 * arg2;
+fraction fdiv(fraction f1, fraction f2) {
+	fraction f;
+	f.resch = f1.chisl * f2.znam;
+	f.reszn = f1.znam * f2.chisl;
+	return f;
+}
+void fcout(fraction f) {
+	cout << f.resch << "/" << f.reszn << endl;
 }
