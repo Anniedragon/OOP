@@ -178,10 +178,10 @@ struct znach {
 	float zn3;
 	char zn4;
 };
-int power1(int zn, int p);
-long power2(long zn, int p);
-float power3(float zn, int p);
-char power4(char zn, int p);
+double power1(int zn, int p);
+double power2(long zn, int p);
+double power3(float zn, int p);
+double power4(char zn, int p);
 int main() {
 	setlocale(LC_ALL, "Russian");
 	znach z;
@@ -202,34 +202,35 @@ int main() {
 		<< power4(z.zn4, st) << endl;
 	return 0;
 }
-int power1(int zn, int p) {
+double power1(int zn, int p) {
 	int result = 1;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
 	}
 	return result;
 }
-long power2(long zn, int p) {
+double power2(long zn, int p) {
 	long result = 1;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
 	}
 	return result;
 }
-float power3(float zn, int p) {
+double power3(float zn, int p) {
 	float result = 1.0;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
 	}
 	return result;
 }
-char power4(char zn, int p) {
+double power4(char zn, int p) {
 	char result = zn;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
 	}
 	return result;
 }
+
 
 //lab4.8
 #include <iostream>
