@@ -142,7 +142,6 @@ int main() {
 	time t1, t2, t3;
 	char points;
 	float des_hours;
-	bool pr = false;
 	int k = 10;
 	cout << "Введите время1 в формате 00:00:00" << endl;
 	cin >> t1.hours >> points >> t1.minutes >> points >> t1.seconds;
