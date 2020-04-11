@@ -178,10 +178,10 @@ struct znach {
 	float zn3;
 	char zn4;
 };
-double power1(int zn, int p);
-double power2(long zn, int p);
-double power3(float zn, int p);
-double power4(char zn, int p);
+double power(int zn, int p);
+double power(long zn, int p);
+double power(float zn, int p);
+double power(char zn, int p);
 int main() {
 	setlocale(LC_ALL, "Russian");
 	znach z;
@@ -196,34 +196,34 @@ int main() {
 	cin >> z.zn4;
 	cout << "Введите степень: ";
 	cin >> st;
-	cout << "\n" << power1(z.zn1, st) << endl
-		<< power2(z.zn2, st) << endl
-		<< power3(z.zn3, st) << endl
-		<< power4(z.zn4, st) << endl;
+	cout << "\n" << power(z.zn1, st) << endl
+		<< power(z.zn2, st) << endl
+		<< power(z.zn3, st) << endl
+		<< power(z.zn4, st) << endl;
 	return 0;
 }
-double power1(int zn, int p) {
+double power(int zn, int p) {
 	int result = 1;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
 	}
 	return result;
 }
-double power2(long zn, int p) {
+double power(long zn, int p) {
 	long result = 1;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
 	}
 	return result;
 }
-double power3(float zn, int p) {
+double power(float zn, int p) {
 	float result = 1.0;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
 	}
 	return result;
 }
-double power4(char zn, int p) {
+double power(char zn, int p) {
 	char result = zn;
 	for (int i = 0; i < p; i++) {
 		result *= zn;
