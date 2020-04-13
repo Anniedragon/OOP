@@ -325,7 +325,7 @@ struct sterling {
 };
 sterling ster_cin(sterling st);
 sterling ster_sum(sterling sum1, sterling sum2);
-void ster_cout(sterling arg);
+void ster_cout(sterling sum);
 int main() {
 	sterling st1, st2, s1, s2, stsum;
 	st1 = ster_cin(s1);
