@@ -174,6 +174,35 @@ int main() {
 }
 
 //lab5.5
+#include <iostream>
+using namespace std;
+struct date {
+	int day;
+	int month;
+	int year;
+};
+class Date {
+private:
+	date d;
+public:
+	void get_date(date today_d) {
+		d = today_d;
+	}
+	void showdate(date d) {
+		cout << "\nToday is " << d.day << "/" << d.month << "/" << d.year << ".";
+	}
+};
+int main() {
+	Date to_day;
+	date today;
+	char slash;
+	cout << "What's the date today? Enter in 00/00/00 format." << endl;
+	cin >> today.day >> slash >> today.month >> slash >> today.year;
+	to_day.get_date(today);
+	to_day.showdate(today);
+	return 0;
+}
+
 //lab5.6
 //lab5.7
 //lab5.8
