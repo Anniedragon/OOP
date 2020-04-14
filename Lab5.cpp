@@ -204,6 +204,180 @@ int main() {
 }
 
 //lab5.6
+#include <iostream>
+#include <string>
+using namespace std;
+class Date {
+private:
+	int day;
+	int month;
+	int year;
+public:
+	void get_date(int em_day, int em_month, int em_year) {
+		day = em_day;
+		month = em_month;
+		year = em_year;
+	}
+	void showdate() {
+		cout << "Start date: " << day << "/" << month << "/" << year << "." << endl;
+	}
+};
+enum etype { laborer = 1, secretary, manager, accountant, executive, researcher };
+class employee {
+private:
+	int number;
+	float salary;
+	Date data;
+	etype profession;
+public:
+	void getemployee(int em_number, float em_salary, int em_day, int em_month, int em_year, etype em_prof) {
+		number = em_number;
+		salary = em_salary;
+		data.get_date(em_day, em_month, em_year);
+		profession = em_prof;
+	}
+
+	void putemployee() {
+		cout << "\nNumber: " << number << endl
+			<< "Salary: " << salary << endl;
+		data.showdate();
+		cout << "Profession: ";
+		switch (profession) {
+		case 1:
+			cout << "laborer" << endl;
+			break;
+		case 2:
+			cout << "secretary" << endl;
+			break;
+		case 3:
+			cout << "manager" << endl;
+			break;
+		case 4:
+			cout << "accountant" << endl;
+			break;
+		case 5:
+			cout << "executive" << endl;
+			break;
+		case 6:
+			cout << "researcher" << endl;
+			break;
+		default:
+			cout << "Your position is absent. Try again." << endl;
+			break;
+		}
+	}
+};
+int main() {
+	employee em1, em2, em3;
+	int number, day, month, year;
+	float salary;
+	etype profession;
+	char slash, letter;
+	cout << "Enter information about the 1st employee." << endl
+		<< "Enter number: ";
+	cin >> number;
+	cout << "Enter salary: ";
+	cin >> salary;
+	cout << "Enter the start date in 00/00/0000 format: ";
+	cin >> day >> slash >> month >> slash >> year;
+	cout << "Enter th 1st letter of the profession (laborer, secretary, manager, accountant, executive, researcher): ";
+	cin >> letter;
+	switch (letter) {
+	case 'l':
+		profession = laborer;
+		break;
+	case 's':
+		profession = secretary;
+		break;
+	case 'm':
+		profession = manager;
+		break;
+	case 'a':
+		profession = accountant;
+		break;
+	case 'e':
+		profession = executive;
+		break;
+	case 'r':
+		profession = researcher;
+		break;
+	default:
+		cout << "Try again" << endl;
+		break;
+	}
+	em1.getemployee(number, salary, day, month, year, profession);
+	em1.putemployee();
+	cout << "\nEnter information about the 2nd employee." << endl
+		<< "Enter number: ";
+	cin >> number;
+	cout << "Enter salary: ";
+	cin >> salary;
+	cout << "Enter the start date in 00/00/0000 format: ";
+	cin >> day >> slash >> month >> slash >> year;
+	cout << "Enter th 1st letter of the profession (laborer, secretary, manager, accountant, executive, researcher): ";
+	cin >> letter;
+	switch (letter) {
+	case 'l':
+		profession = laborer;
+		break;
+	case 's':
+		profession = secretary;
+		break;
+	case 'm':
+		profession = manager;
+		break;
+	case 'a':
+		profession = accountant;
+		break;
+	case 'e':
+		profession = executive;
+		break;
+	case 'r':
+		profession = researcher;
+		break;
+	default:
+		cout << "Try again" << endl;
+		break;
+	}
+	em2.getemployee(number, salary, day, month, year, profession);
+	em2.putemployee();
+	cout << "\nEnter information about the 3d employee." << endl
+		<< "Enter number: ";
+	cin >> number;
+	cout << "Enter salary: ";
+	cin >> salary;
+	cout << "Enter the start date in 00/00/0000 format: ";
+	cin >> day >> slash >> month >> slash >> year;
+	cout << "Enter th 1st letter of the profession (laborer, secretary, manager, accountant, executive, researcher): ";
+	cin >> letter;
+	switch (letter) {
+	case 'l':
+		profession = laborer;
+		break;
+	case 's':
+		profession = secretary;
+		break;
+	case 'm':
+		profession = manager;
+		break;
+	case 'a':
+		profession = accountant;
+		break;
+	case 'e':
+		profession = executive;
+		break;
+	case 'r':
+		profession = researcher;
+		break;
+	default:
+		cout << "Try again" << endl;
+		break;
+	}
+	em3.getemployee(number, salary, day, month, year, profession);
+	em3.putemployee();
+	return 0;
+}
+
 //lab5.7
 //lab5.8
 //lab5.9
