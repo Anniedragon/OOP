@@ -115,48 +115,61 @@ int main() {
 	return 0;
 }
 
-//lab5.4 IN PROGRESS
+//lab5.4
 #include <iostream>
 using namespace std;
 class employee {
+private:
+	int number;
+	float salary;
 public:
-	int num;
-	float allow;
-	employee() : num(0), allow(0.0) {
+	void get_number(int em_number) {
+		number = em_number;
 	}
-	employee(int n, float a) : num(n), allow(a) {
+	int return_number() {
+		return number;
 	}
-	void display() const {
-		cout << "Number: " << num << endl
-			<< "Allowance: " << allow << endl;
+	void get_salary(float em_salary) {
+		salary = em_salary;
+	}
+	float return_salary() {
+		return salary;
 	}
 };
 int main() {
-	const employee em1(1, 67000);
-	const employee em2(2, 120000);
-	const employee em3(3, 45000);
-	/*cout << "Enter the number and allowance of 1st employee" << endl;
-	cin >> num;
-	cin >> allow;*/
-	cout << "1st employee" << endl;
-	em1.display();
-	cout << "\n2nd employee" << endl;
-	em2.display();
-	cout << "\n3d employee" << endl;
-	em3.display();
-	/*cout << "Enter the number and allowance of 2nd employee" << endl;
-	cin >> em2.number >> em2.allowance;
-	cout << "Enter the number and allowance of 3d employee" << endl;
-	cin >> em3.number >> em3.allowance;
-	cout << "1st employee" << endl
-		<< "Number: " << em1.number << endl
-		<< "Allowance: " << em1.allowance << endl;
-	cout << "2nd employee" << endl
-		<< "Number: " << em2.number << endl
-		<< "Allowance: " << em2.allowance << endl;
-	cout << "3d employee" << endl
-		<< "Number: " << em3.number << endl
-		<< "Allowance: " << em3.allowance << endl;*/
+	employee em1, em2, em3;
+	int number;
+	float salary;
+	cout << "Enter the information about the 1st employee." << endl
+		<< "Enter number: ";
+	cin >> number;
+	cout << "Enter salary: ";
+	cin >> salary;
+	em1.get_number(number);
+	em1.get_salary(salary);
+	cout << "\nEnter the information about the 2nd employee." << endl
+		<< "Enter number: ";
+	cin >> number;
+	cout << "Enter salary: ";
+	cin >> salary;
+	em2.get_number(number);
+	em2.get_salary(salary);
+	cout << "\nEnter the information about the 3d employee." << endl
+		<< "Enter number: ";
+	cin >> number;
+	cout << "Enter salary: ";
+	cin >> salary;
+	em3.get_number(number);
+	em3.get_salary(salary);
+	cout << "\nThe information about the 1st employee." << endl
+		<< "Number: " << em1.return_number() << endl
+		<< "Salary: " << em1.return_salary() << endl
+		<< "\nThe information about the 2nd employee." << endl
+		<< "Number: " << em2.return_number() << endl
+		<< "Salary: " << em2.return_salary() << endl
+		<< "\nThe information about the 3d employee." << endl
+		<< "Number: " << em3.return_number() << endl
+		<< "Salary: " << em3.return_salary() << endl;
 	return 0;
 }
 
