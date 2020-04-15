@@ -426,5 +426,119 @@ int main() {
 }
 
 //lab5.10
-//lab5.11
-//lab5.12
+//lab5.11 CLASS METHOD "LOWTERMS" DOESN'T WORK
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct fraction {
+	long chisl;
+	long znam;
+};
+class Fraction {
+private:
+	fraction fr1, fr2, fr, frres;
+public:
+	void get_frac(fraction u_fr1, fraction u_fr2) {
+		fr1 = u_fr1;
+		fr2 = u_fr2;
+	}
+	void frac_sum() {
+		fr.chisl = fr1.chisl * fr2.znam + fr2.chisl * fr1.znam;
+		fr.znam = fr1.znam * fr2.znam;
+	}
+	void frac_sub() {
+		fr.chisl = fr1.chisl * fr2.znam - fr2.chisl * fr1.znam;
+		fr.znam = fr1.znam * fr2.znam;
+	}
+	void frac_mul() {
+		fr.chisl = fr1.chisl * fr2.chisl;
+		fr.znam = fr1.znam * fr2.znam;
+	}
+	void frac_div() {
+		fr.chisl = fr1.chisl * fr2.znam;
+		fr.znam = fr1.znam * fr2.chisl;
+	}
+	void lowterms() {
+		frres.chisl = labs(fr.chisl);
+		frres.znam = labs(fr.znam); 
+		if (frres.znam == 0) {
+			cout << "Forbidden znam";
+			exit(1);
+		}
+		else if (frres.chisl == 0) {
+			fr.chisl = 0;
+			fr.znam = 1;
+		}
+	}
+	void return_frac() {
+		cout << frres.chisl << "/" << frres.znam << endl;
+	}
+};
+int main() {
+	Fraction frac;
+	fraction fr1, fr2;
+	char slash, flag, oper;
+	while (true) {
+		cout << "Enter the 1st fraction in a/b format: ";
+		cin >> fr1.chisl >> slash >> fr1.znam;
+		cout << "Enter the 2nd fraction in c/d format: ";
+		cin >> fr2.chisl >> slash >> fr2.znam;
+		cout << "Enter what you want to do (+, -, *, /): ";
+		cin >> oper;
+		switch (oper) {
+		case '+':
+			frac.get_frac(fr1, fr2);
+			frac.frac_sum();
+			frac.lowterms();
+			frac.return_frac();
+			cout << "Do you want to continue? Write y/n: ";
+			cin >> flag;
+			if (flag == 'n') {
+				break;
+			}
+			break;
+		case '-':
+			frac.get_frac(fr1, fr2);
+			frac.frac_sub();
+			frac.lowterms();
+			frac.return_frac();
+			cout << "Do you want to continue? Write y/n: ";
+			cin >> flag;
+			if (flag == 'n') {
+				break;
+			}
+			break;
+		case '*':
+			frac.get_frac(fr1, fr2);
+			frac.frac_mul();
+			frac.lowterms();
+			frac.return_frac();
+			cout << "Do you want to continue? Write y/n: ";
+			cin >> flag;
+			if (flag == 'n') {
+				break;
+			}
+			break;
+		case '/':
+			frac.get_frac(fr1, fr2);
+			frac.frac_div();
+			frac.lowterms();
+			frac.return_frac();
+			cout << "Do you want to continue? Write y/n: ";
+			cin >> flag;
+			if (flag == 'n') {
+				break;
+			}
+			break;
+		default:
+			cout << "This operation is absent. Try again.";
+			cout << "Do you want to continue? Write y/n: ";
+			cin >> flag;
+			if (flag == 'n') {
+				break;
+			}
+			break;
+		}
+	}
+	return 0;
+}
