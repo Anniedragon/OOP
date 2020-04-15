@@ -381,6 +381,50 @@ int main() {
 //lab5.7
 //lab5.8
 //lab5.9
+#include <iostream>
+#include <string>
+using namespace std;
+struct fraction {
+	int chisl;
+	int znam;
+};
+class Fraction {
+private:
+	fraction fr1, fr2, frsum;
+public:
+	void get_frac(fraction u_fr1, fraction u_fr2) {
+		fr1 = u_fr1;
+		fr2 = u_fr2;
+	}
+	void frac_sum() {
+		frsum.chisl = fr1.chisl * fr2.znam + fr2.chisl * fr1.znam;
+		frsum.znam = fr1.znam * fr2.znam;
+	}
+	void return_frac() {
+		cout << frsum.chisl << "/" << frsum.znam << endl;
+	}
+};
+int main() {
+	Fraction frac;
+	fraction fr1, fr2;
+	char slash, flag;
+	while (true) {
+		cout << "Enter the 1st fraction in a/b format" << endl;
+		cin >> fr1.chisl >> slash >> fr1.znam;
+		cout << "Enter the 2nd fraction in c/d format" << endl;
+		cin >> fr2.chisl >> slash >> fr2.znam;
+		frac.get_frac(fr1, fr2);
+		frac.frac_sum();
+		frac.return_frac();
+		cout << "Do you want to continue? Write y/n: ";
+		cin >> flag;
+		if (flag == 'n') {
+			break;
+		}
+	}
+	return 0;
+}
+
 //lab5.10
 //lab5.11
 //lab5.12
