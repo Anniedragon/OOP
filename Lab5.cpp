@@ -430,64 +430,79 @@ int main() {
 #include <iostream>
 #include <cmath>
 using namespace std;
-struct fraction {
-	long chisl;
-	long znam;
-};
-class Fraction {
+class fraction {
 private:
-	fraction fr1, fr2, fr, frres;
+	long chisl1;
+	long znam1;
+	long chisl2;
+	long znam2;
+	long reschisl;
+	long resznam;
 public:
-	void get_frac(fraction u_fr1, fraction u_fr2) {
-		fr1 = u_fr1;
-		fr2 = u_fr2;
+	void get_frac(long u_chisl1, long u_znam1, long u_chisl2, long u_znam2) {
+		chisl1 = u_chisl1;
+		znam1 = u_znam1;
+		chisl2 = u_chisl2;
+		znam2 = u_znam2;
 	}
 	void frac_sum() {
-		fr.chisl = fr1.chisl * fr2.znam + fr2.chisl * fr1.znam;
-		fr.znam = fr1.znam * fr2.znam;
+		reschisl = chisl1 * znam2 + chisl2 * znam1;
+		resznam = znam1 * znam2;
 	}
 	void frac_sub() {
-		fr.chisl = fr1.chisl * fr2.znam - fr2.chisl * fr1.znam;
-		fr.znam = fr1.znam * fr2.znam;
+		reschisl = chisl1 * znam2 - chisl2 * znam1;
+		resznam = znam1 * znam2;
 	}
 	void frac_mul() {
-		fr.chisl = fr1.chisl * fr2.chisl;
-		fr.znam = fr1.znam * fr2.znam;
+		reschisl = chisl1 * chisl2;
+		resznam = znam1 * znam2;
 	}
 	void frac_div() {
-		fr.chisl = fr1.chisl * fr2.znam;
-		fr.znam = fr1.znam * fr2.chisl;
+		reschisl = chisl1 * znam2;
+		resznam = znam1 * chisl2;
 	}
-	void lowterms() {
-		frres.chisl = labs(fr.chisl);
-		frres.znam = labs(fr.znam); 
-		if (frres.znam == 0) {
+	void lowterms() { // не работает, паскуда
+		long temp, result_chisl, result_znam, nod;
+		result_chisl = labs(reschisl);
+		result_znam = labs(resznam); 
+		if (result_znam == 0) {
 			cout << "Forbidden znam";
 			exit(1);
 		}
-		else if (frres.chisl == 0) {
-			fr.chisl = 0;
-			fr.znam = 1;
+		else if (result_chisl == 0) {
+			reschisl = 0;
+			resznam = 1;
 		}
+		while (result_chisl != 0) {
+			if (result_chisl < result_znam) {
+				temp = result_chisl;
+				result_chisl = result_znam;
+				result_znam = temp;
+			}
+			result_chisl = result_chisl - result_znam;
+		}
+		nod = result_znam;
+		reschisl = reschisl / nod;
+		resznam = resznam / nod;
 	}
 	void return_frac() {
-		cout << frres.chisl << "/" << frres.znam << endl;
+		cout << reschisl << "/" << resznam << endl;
 	}
 };
 int main() {
-	Fraction frac;
-	fraction fr1, fr2;
+	fraction frac;
 	char slash, flag, oper;
+	long chisl1, znam1, chisl2, znam2;
 	while (true) {
 		cout << "Enter the 1st fraction in a/b format: ";
-		cin >> fr1.chisl >> slash >> fr1.znam;
+		cin >> chisl1 >> slash >> znam1;
 		cout << "Enter the 2nd fraction in c/d format: ";
-		cin >> fr2.chisl >> slash >> fr2.znam;
+		cin >> chisl2 >> slash >> znam2;
 		cout << "Enter what you want to do (+, -, *, /): ";
 		cin >> oper;
 		switch (oper) {
 		case '+':
-			frac.get_frac(fr1, fr2);
+			frac.get_frac(chisl1, znam1, chisl2, znam2);
 			frac.frac_sum();
 			frac.lowterms();
 			frac.return_frac();
@@ -498,7 +513,7 @@ int main() {
 			}
 			break;
 		case '-':
-			frac.get_frac(fr1, fr2);
+			frac.get_frac(chisl1, znam1, chisl2, znam2);
 			frac.frac_sub();
 			frac.lowterms();
 			frac.return_frac();
@@ -509,7 +524,7 @@ int main() {
 			}
 			break;
 		case '*':
-			frac.get_frac(fr1, fr2);
+			frac.get_frac(chisl1, znam1, chisl2, znam2);
 			frac.frac_mul();
 			frac.lowterms();
 			frac.return_frac();
@@ -520,7 +535,7 @@ int main() {
 			}
 			break;
 		case '/':
-			frac.get_frac(fr1, fr2);
+			frac.get_frac(chisl1, znam1, chisl2, znam2);
 			frac.frac_div();
 			frac.lowterms();
 			frac.return_frac();
