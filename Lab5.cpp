@@ -379,6 +379,47 @@ int main() {
 }
 
 //lab5.7
+#include <iostream>
+using namespace std;
+class angle {
+private:
+    int degree;
+    float minutes;
+    char direction;
+    char ang = '\xF8';
+public:
+    void get_angle(int deg, float min, char dir) {
+        degree = deg;
+        minutes = min;
+        direction = dir;
+    }
+    void show_angle() {
+        cout << degree << ang << minutes << "' " << direction << endl;
+    }
+    angle(int degree, float minutes, char direction) {
+        get_angle(degree, minutes, direction);
+        show_angle();
+    }
+};
+int main() {
+    int degree;
+    float minutes;
+    char direction;
+    int flag = 1;
+    while (flag == 1) {
+        cout << "Enter degree: ";
+        cin >> degree;
+        cout << "Enter minutes: ";
+        cin >> minutes;
+        cout << "Enter direction (N, S, W, E): ";
+        cin >> direction;
+        angle* ang1 = new angle(degree, minutes, direction);
+        cout << "Do you want to continue? yes - 1, no - 0: ";
+        cin >> flag;
+    }
+    return 0;
+}
+
 //lab5.8
 //lab5.9
 #include <iostream>
