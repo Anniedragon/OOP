@@ -467,7 +467,7 @@ int main() {
 }
 
 //lab5.10
-//lab5.11 CLASS METHOD "LOWTERMS" DOESN'T WORK
+//lab5.11
 #include <iostream>
 #include <cmath>
 using namespace std;
