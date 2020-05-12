@@ -421,6 +421,30 @@ int main() {
 }
 
 //lab5.8
+#include <iostream>
+using namespace std;
+class number {
+  private:
+    static int count;
+    int num;
+  public:
+    number() {
+      count++;
+      num = count;
+    }
+    int get_count() {
+          return num;
+      }
+};
+int number::count = 0;
+int main() {
+  number n1, n2, n3;
+  cout << "My number is " << n1.get_count() << endl;
+  cout << "My number is " << n2.get_count() << endl;
+  cout << "My number is " << n3.get_count() << endl;
+  return 0;
+}
+
 //lab5.9
 #include <iostream>
 #include <string>
