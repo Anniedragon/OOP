@@ -286,16 +286,20 @@ void swap(time& arg1, time& arg2) {
 #include <iostream>
 using namespace std;
 int glob = 0;
-int  function();
+int function_st();
+int function_gl();
 int main() {
 	for (int i = 0; i < 15; i++) {
-		cout << "static: " << function() << "\t" << "global: " << glob << endl;
+		cout << "static: " << function_st() << "\t" << "global: " << function_gl << endl;
 	}
 	return 0;
 }
-int function() {
-	static int stat = 0;
+int function_gl() {
 	glob++;
+	return glob;
+}
+int function_st() {
+	static int stat = 0;
 	stat++;
 	return stat;
 }
