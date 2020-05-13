@@ -662,7 +662,7 @@ int main() {
 	fraction frac;
 	char slash, flag, oper;
 	long chisl1, znam1, chisl2, znam2;
-  flag = 'y';
+        flag = 'y';
 	while (flag != 'n') {
 		cout << "Enter the 1st fraction in a/b format: ";
 		cin >> chisl1 >> slash >> znam1;
