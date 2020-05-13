@@ -726,3 +726,5 @@ int main() {
 	}
 	return 0;
 }
+
+//lab5.12
