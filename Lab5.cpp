@@ -630,7 +630,7 @@ public:
 		reschisl = chisl1 * znam2;
 		resznam = znam1 * chisl2;
 	}
-	void lowterms() { // не работает, паскуда
+	void lowterms() { 
 		long temp, result_chisl, result_znam, nod;
 		result_chisl = labs(reschisl);
 		result_znam = labs(resznam); 
@@ -662,7 +662,8 @@ int main() {
 	fraction frac;
 	char slash, flag, oper;
 	long chisl1, znam1, chisl2, znam2;
-	while (true) {
+  flag = 'y';
+	while (flag != 'n') {
 		cout << "Enter the 1st fraction in a/b format: ";
 		cin >> chisl1 >> slash >> znam1;
 		cout << "Enter the 2nd fraction in c/d format: ";
@@ -677,9 +678,6 @@ int main() {
 			frac.return_frac();
 			cout << "Do you want to continue? Write y/n: ";
 			cin >> flag;
-			if (flag == 'n') {
-				break;
-			}
 			break;
 		case '-':
 			frac.get_frac(chisl1, znam1, chisl2, znam2);
@@ -699,9 +697,6 @@ int main() {
 			frac.return_frac();
 			cout << "Do you want to continue? Write y/n: ";
 			cin >> flag;
-			if (flag == 'n') {
-				break;
-			}
 			break;
 		case '/':
 			frac.get_frac(chisl1, znam1, chisl2, znam2);
@@ -710,17 +705,11 @@ int main() {
 			frac.return_frac();
 			cout << "Do you want to continue? Write y/n: ";
 			cin >> flag;
-			if (flag == 'n') {
-				break;
-			}
 			break;
 		default:
 			cout << "This operation is absent. Try again.";
 			cout << "Do you want to continue? Write y/n: ";
 			cin >> flag;
-			if (flag == 'n') {
-				break;
-			}
 			break;
 		}
 	}
