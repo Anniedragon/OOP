@@ -491,6 +491,110 @@ int main() {
 }
 
 //lab5.10
+#include <iostream>
+using namespace std;
+class angle {
+private:
+    int degree;
+    float minutes;
+    char direction;
+    char ang = '\xF8';
+public:
+    void get_angle(int deg, float min, char dir) {
+        degree = deg;
+        minutes = min;
+        direction = dir;
+    }
+    void show_angle() {
+        cout << degree << ang << minutes << "' " << direction << endl;
+    }
+};
+class ship {
+private:  
+    angle latitude;
+    angle longitude;
+    static int count;
+    int number;
+public:
+    ship() {
+        count++;
+        number = count;
+    }
+    int ship_number() {
+        return number;
+    }
+    void get_ship_inf(int deg, int deg1, float min, float min1, char dir, char dir1) {
+        latitude.get_angle(deg, min, dir);
+        longitude.get_angle(deg1, min1, dir1);
+    }
+    void show_ship_inf() {
+        latitude.show_angle();
+        longitude.show_angle();
+    }
+};
+int ship::count = 0;
+int main() {
+    ship sp1, sp2, sp3;
+    int degree, degree1;
+    float minutes, minutes1;
+    char direction, direction1;
+    cout << "Enter the information about the 1st ship." << endl
+        << "Enter latitude." << endl
+        << "Enter degree: ";
+    cin >> degree;
+    cout << "Enter minutes: ";
+    cin >> minutes;
+    cout << "Enter direction (N, S, W, E): ";
+    cin >> direction;
+    cout << "Enter latitude." << endl
+        << "Enter degree: ";
+    cin >> degree1;
+    cout << "Enter minutes: ";
+    cin >> minutes1;
+    cout << "Enter direction (N, S, W, E): ";
+    cin >> direction1;
+    sp1.get_ship_inf(degree, degree1, minutes, minutes1, direction, direction1);
+    cout << "\nEnter the information about the 2nd ship." << endl
+        << "Enter latitude." << endl
+        << "Enter degree: ";
+    cin >> degree;
+    cout << "Enter minutes: ";
+    cin >> minutes;
+    cout << "Enter direction (N, S, W, E): ";
+    cin >> direction;
+    cout << "Enter latitude." << endl
+        << "Enter degree: ";
+    cin >> degree1;
+    cout << "Enter minutes: ";
+    cin >> minutes1;
+    cout << "Enter direction (N, S, W, E): ";
+    cin >> direction1;
+    sp2.get_ship_inf(degree, degree1, minutes, minutes1, direction, direction1);
+    cout << "\nEnter the information about the 3d ship." << endl
+        << "Enter latitude." << endl
+        << "Enter degree: ";
+    cin >> degree;
+    cout << "Enter minutes: ";
+    cin >> minutes;
+    cout << "Enter direction (N, S, W, E): ";
+    cin >> direction;
+    cout << "Enter latitude." << endl
+        << "Enter degree: ";
+    cin >> degree1;
+    cout << "Enter minutes: ";
+    cin >> minutes1;
+    cout << "Enter direction (N, S, W, E): ";
+    cin >> direction1;
+    sp3.get_ship_inf(degree, degree1, minutes, minutes1, direction, direction1);
+    cout << "\nNumber of the 1st ship: " << sp1.ship_number() << endl;
+    sp1.show_ship_inf();
+    cout << "Number of the 1st ship: " << sp2.ship_number() << endl;
+    sp2.show_ship_inf();
+    cout << "Number of the 1st ship: " << sp3.ship_number() << endl;
+    sp3.show_ship_inf();
+    return 0;
+}
+
 //lab5.11
 #include <iostream>
 #include <cmath>
