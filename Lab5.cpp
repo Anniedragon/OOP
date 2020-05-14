@@ -717,3 +717,87 @@ int main() {
 }
 
 //lab5.12
+#include <iostream>
+#include <vector>
+using namespace std;
+class fraction {
+private:
+	long chisl1;
+	long znam1;
+	long chisl2;
+	long znam2;
+	long reschisl;
+	long resznam;
+public:
+	void get_frac(long u_chisl1, long u_znam1, long u_chisl2, long u_znam2) {
+		chisl1 = u_chisl1;
+		znam1 = u_znam1;
+		chisl2 = u_chisl2;
+		znam2 = u_znam2;
+	}
+	void frac_sum() {
+		reschisl = chisl1 * znam2 + chisl2 * znam1;
+		resznam = znam1 * znam2;
+	}
+	void frac_sub() {
+		reschisl = chisl1 * znam2 - chisl2 * znam1;
+		resznam = znam1 * znam2;
+	}
+	void frac_mul() {
+		reschisl = chisl1 * chisl2;
+		resznam = znam1 * znam2;
+	}
+	void frac_div() {
+		reschisl = chisl1 * znam2;
+		resznam = znam1 * chisl2;
+	}
+	void lowterms() {
+		long temp, result_chisl, result_znam, nod;
+		result_chisl = labs(reschisl);
+		result_znam = labs(resznam);
+		if (result_znam == 0) {
+			cout << "Forbidden znam";
+			exit(1);
+		}
+		else if (result_chisl == 0) {
+			reschisl = 0;
+			resznam = 1;
+		}
+		while (result_chisl != 0) {
+			if (result_chisl < result_znam) {
+				temp = result_chisl;
+				result_chisl = result_znam;
+				result_znam = temp;
+			}
+			result_chisl = result_chisl - result_znam;
+		}
+		nod = result_znam;
+		reschisl = reschisl / nod;
+		resznam = resznam / nod;
+	}
+	void return_frac() {
+		cout << reschisl << "/" << resznam << "\t";
+	}
+	void return_frac_endl() {
+		cout << reschisl << "/" << resznam << endl;
+	}
+};
+int main() {
+	fraction f;
+	long chisl = 1;
+	long znam, i, j;
+	cout << "Enter znam: ";
+	cin >> znam;
+	for (i = 1; i < znam; i++) {
+		for (j = 1; j < znam; j++) {
+			f.get_frac(i, znam, j, znam);
+			f.frac_mul();
+			f.lowterms();
+			if (j != znam - 1) {
+				f.return_frac();
+			}
+			else f.return_frac_endl();
+		}
+	}
+	return 0;
+}
