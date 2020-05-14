@@ -125,6 +125,32 @@ return 0;
 }
 
 //lab6.4
+#include <iostream>
+using namespace std;
+void maxint(int* arr, int size);
+int main() {
+    int N;
+    cout << "Enter size of array: ";
+    cin >> N;
+    int* numbers = new int[N];
+    for (int i = 0; i < N; i++) {
+        cout << "Enter " << i << " element: ";
+        cin >> numbers[i];
+    }
+    maxint(numbers, N);
+}
+void maxint(int *arr, int size) {
+    int max = arr[0];
+    int index = 0;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+            index = i;
+        }
+    }
+    cout << max << " " << index;
+}
+
 //lab6.5
 //lab6.6
 //lab6.7
