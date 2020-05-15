@@ -152,6 +152,54 @@ void maxint(int *arr, int size) {
 }
 
 //lab6.5
+#include <iostream>
+using namespace std;
+class fraction {
+private:
+	long chisl;
+	long znam;
+public:
+	void get_frac(long u_chisl, long u_znam) {
+		chisl = u_chisl;
+		znam = u_znam;
+	}
+	void return_frac() {
+		cout << chisl << "/" << znam << endl;
+	}
+	void frac_sum(fraction, fraction);
+	void frac_average(fraction, int);
+};
+void fraction::frac_sum(fraction f1, fraction f2) {
+	chisl = f1.chisl * f2.znam + f2.chisl * f1.znam;
+	znam = f1.znam * f2.znam;
+}
+void fraction::frac_average(fraction d, int size) {
+	chisl = d.chisl;
+	znam = d.znam * size;
+}
+int main() {
+	int N, chisl, znam;
+	char sl;
+	fraction sum, average;
+	cout << "Enter a size of the array: ";
+	cin >> N;
+	fraction* frac_array = new fraction[N];
+	cout << "Enter 0 fraction like a/b: ";
+	cin >> chisl >> sl >> znam;
+	sum.get_frac(chisl, znam);
+	for (int i = 1; i < N; i++) {
+		cout << "Enter " << i << " fraction: ";
+		cin >> chisl >> sl >> znam;
+		frac_array[i].get_frac(chisl, znam);
+	}
+	for (int i = 1; i < N; i++) {
+		sum.frac_sum(sum, frac_array[i]);
+	}
+	average.frac_average(sum, N);
+	average.return_frac();
+	return 0;
+}
+
 //lab6.6
 //lab6.7
 //lab6.8
