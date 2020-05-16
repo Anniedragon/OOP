@@ -467,6 +467,45 @@ int main() {
 }
 
 //lab6.8
+#include <iostream>
+using namespace std;
+class safearay {
+private:
+    int limit[20];
+public:
+    void putel(int ind, int zn) {
+        if ((ind > 19) || (ind < 0)) {
+            cout << "You're out of array. Max index is 19 and min index is 0." << endl;
+        }
+        else limit[ind] = zn;
+    }
+    void getel(int ind) {
+        if ((ind > 19) || (ind < 0)) {
+            cout << "You're out of array. Max index is 19 and min index is 0." << endl;
+        }
+        else cout << limit[ind];
+    }
+};
+int main() {
+    safearay s;
+    int index;
+    int znach;
+    int flag = 1;
+    while (flag != 0) {
+        cout << "Enter an index and value of element: ";
+        cin >> index >> znach;
+        s.putel(index, znach);
+        cout << "Do you want to continue? yes - 1, no - 0: ";
+        cin >> flag;
+    }
+    flag = 1;
+    while (flag != 0) {
+        cout << "Enter an index of element, that value you want to see: ";
+        cin >> index;
+        s.getel(index);
+    }
+}
+
 //lab6.9
 //lab6.10
 //lab6.11
