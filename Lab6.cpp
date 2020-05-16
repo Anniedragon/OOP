@@ -508,5 +508,61 @@ int main() {
 
 //lab6.9
 //lab6.10
+#include <iostream>
+using namespace std;
+class matrix {
+private:
+	int limit[10][10];
+	int N, M;
+public:
+	matrix(int m, int n) {
+		N = n;
+		M = m;
+	}
+	void putel(int ind1, int ind2, int el) {
+		if (((ind1 < 0) || (ind1 > N - 1)) || ((ind2 < 0) || (ind2 > M - 1))) {
+			cout << "You're out of matrix. Min index is 0, max index is " << N - 1 << "." << endl;
+		}
+		else limit[ind1][ind2] = el;
+	}
+	void getel(int ind1, int ind2) {
+		if (((ind1 < 0) || (ind1 > N - 1)) || ((ind2 < 0) || (ind2 > M - 1))) {
+			cout << "You're out of matrix. Min index is 0, max index is " << N - 1 << "." << endl;
+		}
+		else cout << limit[ind1][ind2] << endl;
+	}
+};
+int main() {
+	int index1, index2, value, N, M;
+	char flag;
+	cout << "You have a matrix[10][10]. Do you want to change it's size? y/n: ";
+	cin >> flag;
+	if (flag == 'y') {
+		cout << "Enter a new size: ";
+		cin >> N >> M;
+	}
+	else {
+		N = 10;
+		M = 10;
+	}
+	flag = 'y';
+	matrix* m = new matrix(N, M);
+	while (flag != 'n') {
+		cout << "Enter two indexes and value: ";
+		cin >> index1 >> index2 >> value;
+		m->putel(index1, index2, value);
+		cout << "Do you want to continue? y/n: ";
+		cin >> flag;
+	}
+	flag = 'y';
+	while (flag != 'n') {
+		cout << "Enter two indexes of element, that value you want to see: ";
+		cin >> index1 >> index2;
+		m->getel(index1, index2);
+		cout << "Do you want to continue? y/n: ";
+		cin >> flag;
+	}
+}
+
 //lab6.11
 //lab6.12
