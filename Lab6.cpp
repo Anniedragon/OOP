@@ -294,6 +294,178 @@ int main() {
 }
 
 //lab6.7
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <cstring>
+using namespace std;
+class money {
+private:
+	long double sum;
+public:
+	long double temp = 1;
+	long double result = 0;
+	long double mstold(string u_sum) {
+		string s;
+		int len;
+		len = u_sum.size() - 3;
+		for (int i = 0; i < len; i++) {
+			if ((u_sum[i] != '$') && (u_sum[i] != ',')) {
+				if ((u_sum[i] == '.') && (i + 2 == len - 1)) {
+					s += u_sum[i];
+				}
+				else s += u_sum[i];
+			}
+		}
+		len = s.size();
+		long double pow = len - 1;
+		long double result = 0;
+		int temp = 0;
+		for (int i = 0; i < len; i++) {
+			switch (s[i]) {
+			case '1':
+				temp = 1;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '2':
+				temp = temp * 2;
+				for (int j = 0; j < pow; j++) {
+					temp = temp * 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '3':
+				temp = 3;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '4':
+				temp = 4;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '5':
+				temp = 5;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '6':
+				temp = 6;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '7':
+				temp = 7;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '8':
+				temp = 8;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '9':
+				temp = 9;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			default:
+				break;
+			}
+			pow--;
+		}
+		long double result1 = 0;
+		pow = 0.1;
+		for (int i = s.size() - 2; i <= s.size() - 1; i++) {
+			switch (s[i]) {
+			case '1':
+				temp = 1;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '2':
+				temp = 2;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '3':
+				temp = 3;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '4':
+				temp = 4;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '5':
+				temp = 5;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '6':
+				temp = 6;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '7':
+				temp = 7;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '8':
+				temp = 8;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '9':
+				temp = 9;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			}
+			pow /= 10;
+		}
+		result += result1;
+		cout << result;
+		return result;
+	}
+};
+int main() {
+	money m;
+	string sum;
+	cout << "Enter sum: ";
+	cin >> sum;
+	m.mstold(sum);
+	return 0;
+}
+
 //lab6.8
 //lab6.9
 //lab6.10
