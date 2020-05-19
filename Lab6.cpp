@@ -565,4 +565,168 @@ int main() {
 }
 
 //lab6.11
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+class money {
+private:
+	int sum;
+public:
+	void ldtoms(long double sum) {
+        string ustring, sum_string;
+        char temp; 
+        long double cel, drob;
+        int ch = 0;
+        drob = modf(sum, &cel);
+        int sum1 = cel;
+        int count = 0;
+        while (sum1 != 0) {
+            sum1 /= 10;
+            count++;
+        }
+        int cel_int = int(cel);
+        for (int i = 0; i < count; i++) {
+            ch = cel_int % 10;
+            switch (ch) {
+            case 1:
+                ustring += '1';
+                break;
+            case 2:
+                ustring += '2';
+                break;
+            case 3:
+                ustring += '3';
+                break;
+            case 4:
+                ustring += '4';
+                break;
+            case 5:
+                ustring += '5';
+                break;
+            case 6:
+                ustring += '6';
+                break;
+            case 7:
+                ustring += '7';
+                break;
+            case 8:
+                ustring += '8';
+                break;
+            case 9:
+                ustring += '9';
+                break;
+            case 0:
+                ustring += '0';
+                break;
+            }
+            cel_int /= 10;
+        }
+        for (int i = 0; i < count / 2; i++) {
+            temp = ustring[i];
+            ustring[i] = ustring[count - i - 1];
+            ustring[count - i - 1] = temp;
+        }
+        ustring += '.';
+        drob *= 10;
+        long double drob_cel, drob_drob;
+        drob_drob = modf(drob, &drob_cel);
+        int drob_cel_int = int(drob_cel);
+        drob_drob *= 10;
+        int drob_drob_int = int(drob_drob);
+        switch (drob_cel_int) {
+        case 1:
+            ustring += '1';
+            break;
+        case 2:
+            ustring += '2';
+            break;
+        case 3:
+            ustring += '3';
+            break;
+        case 4:
+            ustring += '4';
+            break;
+        case 5:
+            ustring += '5';
+            break;
+        case 6:
+            ustring += '6';
+            break;
+        case 7:
+            ustring += '7';
+            break;
+        case 8:
+            ustring += '8';
+            break;
+        case 9:
+            ustring += '9';
+            break;
+        case 0:
+            ustring += '0';
+            break;
+        }
+        switch (drob_drob_int) {
+        case 1:
+            ustring += '1';
+            break;
+        case 2:
+            ustring += '2';
+            break;
+        case 3:
+            ustring += '3';
+            break;
+        case 4:
+            ustring += '4';
+            break;
+        case 5:
+            ustring += '5';
+            break;
+        case 6:
+            ustring += '6';
+            break;
+        case 7:
+            ustring += '7';
+            break;
+        case 8:
+            ustring += '8';
+            break;
+        case 9:
+            ustring += '9';
+            break;
+        case 0:
+            ustring += '0';
+            break;
+        }
+        sum_string += '$';
+        int k = 0;
+        for (int i = 0; i < count + 3; i++) {
+            if (ustring[i + 1] == '.') {
+                sum_string += ustring[i];
+                k = 0;
+            }
+            else sum_string += ustring[i];
+            k++;
+            if ((k == 3) && (ustring[i + 1] != '.') && (i < count)) {
+                sum_string += ',';
+                k = 0;
+            }
+        }
+        sum_string[count + 5] = '\0';
+        cout << sum_string << endl;
+	}
+};
+int main() {
+    money m;
+    long double sum;
+    int flag = 1;
+    while (flag != 0) {
+        cout << "Enter sum: ";
+        cin >> sum;
+        m.ldtoms(sum);
+        cout << "Do you want to continue? yes - 1, no - 0: ";
+        cin >> flag;
+    }
+}
+
 //lab6.12
