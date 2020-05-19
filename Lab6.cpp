@@ -730,3 +730,335 @@ int main() {
 }
 
 //lab6.12
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+class bMoney {
+private:
+    long double money, sum_money;
+	string sum;
+public:
+	void getmoney(string u_money) {
+		sum = u_money;
+	}
+	long double mstold() {
+		string s;
+		int len;
+		len = sum.size() - 3;
+		for (int i = 0; i < len; i++) {
+			if ((sum[i] != '$') && (sum[i] != ',')) {
+				if ((sum[i] == '.') && (i + 2 == len - 1)) {
+					s += sum[i];
+				}
+				else s += sum[i];
+			}
+		}
+		len = s.size();
+		long double pow = len - 1;
+		long double result = 0;
+		int temp = 0;
+		for (int i = 0; i < len; i++) {
+			switch (s[i]) {
+			case '1':
+				temp = 1;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '2':
+				temp = temp * 2;
+				for (int j = 0; j < pow; j++) {
+					temp = temp * 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '3':
+				temp = 3;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '4':
+				temp = 4;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '5':
+				temp = 5;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '6':
+				temp = 6;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '7':
+				temp = 7;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '8':
+				temp = 8;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '9':
+				temp = 9;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			default:
+				break;
+			}
+			pow--;
+		}
+		long double result1 = 0;
+		pow = 0.1;
+		for (int i = s.size() - 2; i <= s.size() - 1; i++) {
+			switch (s[i]) {
+			case '1':
+				temp = 1;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '2':
+				temp = 2;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '3':
+				temp = 3;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '4':
+				temp = 4;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '5':
+				temp = 5;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '6':
+				temp = 6;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '7':
+				temp = 7;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '8':
+				temp = 8;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '9':
+				temp = 9;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			}
+			pow /= 10;
+		}
+		result += result1;
+		money = result;
+		return money;
+	}
+	void ldtoms(long double sum) {
+		string ustring, sum_string;
+		char temp;
+		long double cel, drob;
+		int ch = 0;
+		drob = modf(sum, &cel);
+		int sum1 = cel;
+		int count = 0;
+		while (sum1 != 0) {
+			sum1 /= 10;
+			count++;
+		}
+		int cel_int = int(cel);
+		for (int i = 0; i < count; i++) {
+			ch = cel_int % 10;
+			switch (ch) {
+			case 1:
+				ustring += '1';
+				break;
+			case 2:
+				ustring += '2';
+				break;
+			case 3:
+				ustring += '3';
+				break;
+			case 4:
+				ustring += '4';
+				break;
+			case 5:
+				ustring += '5';
+				break;
+			case 6:
+				ustring += '6';
+				break;
+			case 7:
+				ustring += '7';
+				break;
+			case 8:
+				ustring += '8';
+				break;
+			case 9:
+				ustring += '9';
+				break;
+			case 0:
+				ustring += '0';
+				break;
+			}
+			cel_int /= 10;
+		}
+		for (int i = 0; i < count / 2; i++) {
+			temp = ustring[i];
+			ustring[i] = ustring[count - i - 1];
+			ustring[count - i - 1] = temp;
+		}
+		ustring += '.';
+		drob *= 10;
+		long double drob_cel, drob_drob;
+		drob_drob = modf(drob, &drob_cel);
+		int drob_cel_int = int(drob_cel);
+		drob_drob *= 10;
+		int drob_drob_int = int(drob_drob);
+		switch (drob_cel_int) {
+		case 1:
+			ustring += '1';
+			break;
+		case 2:
+			ustring += '2';
+			break;
+		case 3:
+			ustring += '3';
+			break;
+		case 4:
+			ustring += '4';
+			break;
+		case 5:
+			ustring += '5';
+			break;
+		case 6:
+			ustring += '6';
+			break;
+		case 7:
+			ustring += '7';
+			break;
+		case 8:
+			ustring += '8';
+			break;
+		case 9:
+			ustring += '9';
+			break;
+		case 0:
+			ustring += '0';
+			break;
+		}
+		switch (drob_drob_int) {
+		case 1:
+			ustring += '1';
+			break;
+		case 2:
+			ustring += '2';
+			break;
+		case 3:
+			ustring += '3';
+			break;
+		case 4:
+			ustring += '4';
+			break;
+		case 5:
+			ustring += '5';
+			break;
+		case 6:
+			ustring += '6';
+			break;
+		case 7:
+			ustring += '7';
+			break;
+		case 8:
+			ustring += '8';
+			break;
+		case 9:
+			ustring += '9';
+			break;
+		case 0:
+			ustring += '0';
+			break;
+		}
+		sum_string += '$';
+		int k = 0;
+		for (int i = 0; i < count + 3; i++) {
+			if (ustring[i + 1] == '.') {
+				sum_string += ustring[i];
+				k = 0;
+			}
+			else sum_string += ustring[i];
+			k++;
+			if ((k == 3) && (ustring[i + 1] != '.') && (i < count)) {
+				sum_string += ',';
+				k = 0;
+			}
+		}
+		sum_string[count + 5] = '\0';
+		cout << sum_string << endl;
+	}
+	void madd(bMoney m1, bMoney m2);
+	void putmoney() {
+		cout << sum_money << endl;
+	}
+};
+void bMoney::madd(bMoney m1, bMoney m2) {
+	sum_money = m1.money + m2.money;
+}
+int main() {
+	bMoney m1, m2, sum;
+	string money1, money2, money3;
+	cout << "Enter 1st sum like $000,000,00.00: ";
+	cin >> money1;
+	sum.getmoney(money1);
+	cout << "Enter 2nd sum like $000,000,00.00: ";
+	cin >> money2;
+	m1.getmoney(money2);
+	cout << "Enter 3d sum like $000,000,00.00: ";
+	cin >> money3;
+	m2.getmoney(money3);
+	sum.mstold();
+	m1.mstold();
+	m2.mstold();
+	sum.madd(sum, m1);
+	sum.madd(sum, m2);
+	sum.putmoney();
+}
