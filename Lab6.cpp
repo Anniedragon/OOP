@@ -507,6 +507,43 @@ int main() {
 }
 
 //lab6.9
+#include <iostream>
+using namespace std;
+class queue {
+private:
+	static const int N = 10;
+	int q[N];
+	int head;
+	int tail;
+public:
+	queue() {
+		head = 0;
+	}
+	void put(int el) {
+		q[head++] = el;
+	}
+	int get() {
+		tail = q[0];
+		for (int i = 0; i < head - 1; i++) {
+			q[i] = q[i + 1];
+		}
+		head--;
+		return tail;
+	}
+};
+int main() {
+	queue qu;
+	int element = 11;
+	for (int i = 0; i < 6; i++) {
+		qu.put(element);
+		element += 11;
+	}
+	for (int i = 0; i < 6; i++) {
+		cout << i + 1 << ": " << qu.get() << endl;
+	}
+}
+
+
 //lab6.10
 #include <iostream>
 using namespace std;
