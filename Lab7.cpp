@@ -238,64 +238,74 @@ public:
 		}
 		return time(h, m, s);
 	}
-	void post_inc(char sign) {
-		if (sign == '+') {
-			hrs++;
-			mins++;
-			secs++;
-			int h = hrs;
-			int m = mins;
-			int s = secs;
-			if (s > 59) {
-				s -= 60; 
-				m++;
-			}
-			if (m > 59)	{
-				m -= 60; 
-				h++;
-			}
-			cout << h << ":" << m << ":" << s << endl;
+	time operator++ () {
+		int s = secs++;
+		int m = mins;
+		int h = hrs;
+		if (s > 59) {
+			s -= 60;
+			m++;
 		}
-		else if (sign == '-') {
-			int h = hrs--;
-			int m = mins--;
-			int s = secs--;
-			cout << h << ":" << m << ":" << s << endl;
+		if (m > 59) {
+			m -= 60;
+			h++;
 		}
+		return time(h, m, s);
 	}
-	void pref_inc(char sign) {
-		if (sign == '+') {
-			int h = ++hrs;
-			int m = ++mins;
-			int s = ++secs;
-			if (s > 59) {
-				s -= 60; 
-				m++;
-			}
-			if (m > 59) {
-				m -= 60; 
-				h++;
-			}
-			cout << h << ":" << m << ":" << s << endl;
+	time operator++ (int i) {
+		int s = secs++;
+		int m = mins;
+		int h = hrs;
+		if (s > 59) {
+			s -= 60;
+			m++;
 		}
-		else if (sign == '-') {
-			int h = --hrs;
-			int m = --mins;
-			int s = --secs;
-			cout << h << ":" << m << ":" << s << endl;
-		}		
+		if (m > 59) {
+			m -= 60;
+			h++;
+		}
+		return time(h, m, s);
+	}
+	time operator-- () {
+		int s = secs--;
+		int m = mins;
+		int h = hrs;
+		if (s > 59) {
+			s -= 60;
+			m++;
+		}
+		if (m > 59) {
+			m -= 60;
+			h++;
+		}
+		return time(h, m, s);
+	}
+	time operator-- (int i) {
+		int s = secs--;
+		int m = mins;
+		int h = hrs;
+		if (s > 59) {
+			s -= 60;
+			m++;
+		}
+		if (m > 59) {
+			m -= 60;
+			h++;
+		}
+		return time(h, m, s);
 	}
 };
 int main()
 {
 	time time1(5, 59, 59);
-	char sign;
-	cout << "Enter + or - : ";
-	cin >> sign;
-	time1.post_inc(sign);
-	cout << "Enter + or - : ";
-	cin >> sign;
-	time1.pref_inc(sign);
+	time1++;
+	time1.display();
+	++time1;
+	time1.display();
+	time1--;
+	time1.display();
+	--time1;
+	time1.display();
 	return 0;
 }
 
