@@ -567,6 +567,35 @@ int main() {
 
 //lab7.8
 //lab7.9
+#include <iostream>
+#include <process.h>
+using namespace std;
+int LIMIT, bottom;
+class safearay {
+private:
+	int arr[100];
+public:
+	int& operator [](int n) {
+		if (n < 0 || n >= LIMIT) {
+			cout << "\nIndex out of bounds"; 
+			exit(1);
+		}
+		return arr[n];
+	}
+};
+int main() {
+	safearay sa1;
+	cout << "Enter a bottom index and a top index: ";
+	cin >> bottom >> LIMIT;
+	for (int j = 0; j < LIMIT - bottom; j++)
+		sa1[j] = j * 10; 
+	for (int j = 0; j < LIMIT - bottom; j++) {
+		int temp = sa1[j]; 
+		cout << "Element " << j << " is " << temp << endl;
+	}
+	return 0;
+}
+
 //lab7.10
 //lab7.11
 //lab7.12
