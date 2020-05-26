@@ -438,6 +438,132 @@ int main()
 }
 
 //lab7.7
+#include <iostream>
+#include <cmath>
+using namespace std;
+class fraction {
+private:
+	long chisl;
+	long znam;
+public:
+	fraction(long ch, long zn) {
+		chisl = ch;
+		znam = zn;
+	}
+	void get_frac(long u_chisl, long u_znam) {
+		chisl = u_chisl;
+		znam = u_znam;
+	}
+	fraction operator + (fraction f2) {
+		long ch = chisl * f2.znam + f2.chisl * znam;
+		long zn = znam * f2.znam;
+		return fraction(ch, zn);
+	}
+	fraction operator - (fraction f2) {
+		long ch = chisl * f2.znam + f2.chisl * znam;
+		long zn = znam * f2.znam;
+		return fraction(ch, zn);
+	}
+	fraction operator * (fraction f2) {
+		long ch = chisl * f2.chisl;
+		long zn = znam * f2.znam;
+		return fraction(ch, zn);
+	}
+	fraction operator / (fraction f2) {
+		long ch = chisl * f2.znam;
+		long zn = znam * f2.chisl;
+		return fraction(ch, zn);
+	}
+	bool operator == (fraction f) {
+		if ((chisl == f.chisl) && (znam == f.znam)) {
+			return true;
+		}
+		else return false;
+	}
+	bool operator != (fraction f) {
+		if ((chisl != f.chisl) && (znam != f.znam)) {
+			return true;
+		}
+		else return false;
+	}
+	void lowterms() {
+		long temp, result_chisl, result_znam, nod;
+		result_chisl = labs(chisl);
+		result_znam = labs(znam);
+		if (result_znam == 0) {
+			cout << "Forbidden znam";
+			exit(1);
+		}
+		else if (result_chisl == 0) {
+			chisl = 0;
+			znam = 1;
+		}
+		while (result_chisl != 0) {
+			if (result_chisl < result_znam) {
+				temp = result_chisl;
+				result_chisl = result_znam;
+				result_znam = temp;
+			}
+			result_chisl = result_chisl - result_znam;
+		}
+		nod = result_znam;
+		chisl = chisl / nod;
+		znam = znam / nod;
+	}
+	void return_frac() {
+		cout << chisl << "/" << znam << endl;
+	}
+};
+int main() {
+	fraction fr1 = { 0, 0 };
+	fraction fr2 = { 0, 0 };
+	fraction frres = { 0, 0 };
+	fraction zero = { 0, 1 };
+	char slash, oper;
+	long chisl1, chisl2, znam1, znam2;
+	while (true) {
+		cout << "Enter 1st fraction like a/b: ";
+		cin >> chisl1 >> slash >> znam1;
+		fraction fr1(chisl1, znam1);
+		if (fr1 == zero) {
+			break;
+		}
+		cout << "Enter 2nd fraction like a/b: ";
+		cin >> chisl2 >> slash >> znam2;
+		fraction fr2(chisl2, znam2);
+		if (fr2 == zero) {
+			break;
+		}
+		cout << "Enter operation (+, -, *, /): ";
+		cin >> oper;
+		switch (oper) {
+		case '+':
+			frres = fr1 + fr2;
+			frres.lowterms();
+			frres.return_frac();
+			break;
+		case '-':
+			frres = fr1 - fr2;
+			frres.lowterms();
+			frres.return_frac();
+			break;
+		case '*':
+			frres = fr1 * fr2;
+			frres.lowterms();
+			frres.return_frac();
+			break;
+		case '/':
+			frres = fr1 / fr2;
+			frres.lowterms();
+			frres.return_frac();
+			break;
+		default:
+			cout << "You're operation is absent. Try again." << endl;
+			break;
+		}
+	}
+	return 0;
+}
 
 //lab7.8
 //lab7.9
