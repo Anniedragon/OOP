@@ -959,6 +959,38 @@ int main() {
 }
 
 //lab7.10
+#include <iostream>
+using namespace std;
+class polar {
+private:
+	int x, y;
+public: 
+	polar(double r, double gr) {
+		x = r * cos(gr);
+		y = r * sin(gr);
+	}
+	void put_polar() {
+		cout << "x = " << x << ", y = " << y << endl;
+	}
+	polar operator + (polar p2) {
+		x = x + p2.x;
+		y = y + p2.y;
+		return polar(x, y);
+	}
+};
+int main() {
+	double r1, gr1, r2, gr2;
+	cout << "Enter a radius and an angle of 1st point: ";
+	cin >> r1 >> gr1;
+	polar p1(r1, gr1);
+	cout << "Enter a radius and an angle of 2nd point: ";
+	cin >> r2 >> gr2;
+	polar p2(r2, gr2);
+	polar p3 = p1 + p2;
+	p3.put_polar();
+	return 0;
+}
+
 //lab7.11
 #include <iostream>
 using namespace std;
