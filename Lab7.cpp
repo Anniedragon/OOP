@@ -960,4 +960,140 @@ int main() {
 
 //lab7.10
 //lab7.11
+#include <iostream>
+using namespace std;
+class sterling {
+private:
+	long pounds;
+	int shillings;
+	int pense;
+	double d;
+public:
+	sterling() {
+		pounds = 0;
+		shillings = 0;
+		pense = 0;
+	}
+	sterling(double d) {
+		pounds = int(d);
+		pense = d - (int)d; //лол кек чебурек, что это, блять, такое?!
+		shillings = pense * 20;
+	}
+	sterling(double po, int s, int pe) {
+		pounds = po;
+		shillings = s;
+		pense = pe;
+	}
+	void getSterling() {
+		char point;
+		long po;
+		int s, pe;
+		cout << "Enter sum in pounds, shillings and pense: ";
+		cin >> po >> point >> s >> point >> pe;
+		pounds = po;
+		shillings = s;
+		pense = pe;
+	}
+	void putSterling() {
+		cout << pounds << "." << shillings << "." << pense << endl;
+	}
+	void putDouble() {
+		cout << d << endl;
+	}
+	sterling operator + (sterling s2) {
+		pounds = pounds + s2.pounds;
+		shillings = shillings + s2.shillings;
+		pense = pense + s2.pense;
+		while (pense >= 12) {
+			pense -= 12;
+			shillings++;
+		}
+		while (shillings >= 20) {
+			shillings -= 20;
+			pounds++;
+		}
+		return sterling(pounds, shillings, pense);
+	}
+	sterling operator - (sterling s2) {
+		pounds = abs(pounds - s2.pounds);
+		shillings = abs(shillings - s2.shillings);
+		pense = abs(pense - s2.pense);
+		while (pense >= 12) {
+			pense -= 12;
+			shillings++;
+		}
+		while (shillings >= 20) {
+			shillings -= 20;
+			pounds++;
+		}
+		return sterling(pounds, shillings, pense);
+	}
+	sterling operator * (double s2) {
+		pounds = pounds * s2;
+		shillings = shillings * s2;
+		pense = pense * s2;
+		while (pense >= 12) {
+			pense -= 12;
+			shillings++;
+		}
+		while (shillings >= 20) {
+			shillings -= 20;
+			pounds++;
+		}
+		return sterling(pounds, shillings, pense);
+	}
+	sterling operator / (sterling s2) {
+		pounds = pounds / s2.pounds;
+		shillings = shillings / s2.shillings;
+		pense = pense / s2.pense;
+		while (pense >= 12) {
+			pense -= 12;
+			shillings++;
+		}
+		while (shillings >= 20) {
+			shillings -= 20;
+			pounds++;
+		}
+		return sterling(pounds, shillings, pense);
+	}
+	sterling operator / (double d) {
+		pounds = pounds / d;
+		shillings = shillings / d;
+		pense = pense / d;
+		while (pense >= 12) {
+			pense -= 12;
+			shillings++;
+		}
+		while (shillings >= 20) {
+			shillings -= 20;
+			pounds++;
+		}
+		return sterling(pounds, shillings, pense);
+	}
+	void ster_to_double() {
+		d = pounds + (pense / 12) / 20 + shillings / 20;
+	}
+};
+int main() {
+	sterling st1, st2, st3;
+	double amount;
+	st1.getSterling();
+	st2.getSterling();
+	cout << "Enter amount: ";
+	cin >> amount;
+	st3 = st1 + st2;
+	st3.putSterling();
+	st3 = st1 - st2;
+	st3.putSterling();
+	st3 = st1 * amount;
+	st3.putSterling();
+	st3 = st1 / st2;
+	st3.putSterling();
+	st3 = st1 / amount;
+	st3.putSterling();
+	st1.ster_to_double();
+	st1.putDouble();
+	return 0;
+}
+
 //lab7.12
