@@ -589,5 +589,108 @@ int main()
 }
 
 //lab8.10
+#include <iostream>
+using namespace std;
+const int LEN = 80; 
+class student {
+private:
+	char school[LEN]; 
+	char degree[LEN]; 
+public:
+	void getedu() {
+		cout << " Enter name of school or university: ";
+		cin >> school;
+		cout << " Enter highest degree earned (Highschool, Bachelor's, Master's, PhD): ";
+		cin >> degree;
+	}
+	void putedu() const {
+		cout << "\n School or university: " << school;
+		cout << "\n Highest degree earned: " << degree;
+	}
+};
+class employee {
+private:
+	char name[LEN]; 
+	unsigned long number; 
+public:
+	void getdata() {
+		cout << "\n Enter last name: "; 
+		cin >> name;
+		cout << " Enter number: "; 
+		cin >> number;
+	}
+	void putdata() const {
+		cout << "\n Name: " << name;
+		cout << "\n Number: " << number;
+	}
+};
+class manager : private employee, private student {
+private:
+	char title[LEN]; 
+	double dues; //golf club dues
+public:
+	void getdata() {
+		employee::getdata();
+		cout << " Enter title: "; cin >> title;
+		cout << " Enter golf club dues: "; cin >> dues;
+		student::getedu();
+	}
+	void putdata() const {
+		employee::putdata();
+		cout << "\n Title: " << title;
+		cout << "\n Golf club dues: " << dues;
+		student::putedu();
+	}
+};
+class scientist : private employee, private student {
+private:
+	int pubs; 
+public:
+	void getdata() {
+		employee::getdata();
+		cout << " Enter number of pubs: "; cin >> pubs;
+		student::getedu();
+	}
+	void putdata() const {
+		employee::putdata();
+		cout << "\n Number of publications: " << pubs;
+		student::putedu();
+	}
+};
+class laborer : public employee {
+
+};
+class executive : private manager, private student {
+private: 
+	double annual_aw;
+	int stock_am;
+public:
+	void getdata() {
+		double an_aw;
+		int st_am;
+		manager::getdata();
+		cout << "Enter the annual award: ";
+		cin >> an_aw;
+		cout << "Enter the amount of stocks: ";
+		cin >> st_am;
+		annual_aw = an_aw;
+		stock_am = st_am;
+		student::getedu();
+	}
+	void putdata() {
+		manager::putdata();
+		cout << "Annual award: " << annual_aw << endl;
+		cout << "Stock amount: " << stock_am << endl;
+		student::putedu();
+	}
+};
+int main() {
+	executive ex1;
+	ex1.getdata();
+	ex1.putdata();
+	cout << endl;
+	return 0;
+}
+
 //lab8.11
 //lab8.12
