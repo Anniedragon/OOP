@@ -458,6 +458,60 @@ int main() {
 }
 
 //lab8.7
+#include <iostream>
+using namespace std;
+class Counter {
+protected: 
+	unsigned int count; 
+public:
+	Counter() : count(0) 
+	{ }
+	Counter(int c) : count(c) 
+	{ }
+	unsigned int get_count() const 
+	{
+		return count;
+	}
+	Counter operator ++ () 
+	{
+		return Counter(++count);
+	}
+};
+class CountDn : public Counter {
+public:
+	CountDn() : Counter() 
+	{ }
+	CountDn(int c) : Counter(c) 
+	{ }
+	CountDn operator -- () {
+		return CountDn(--count);
+	}
+};
+class CountTn : public Counter {
+public:
+	CountTn() : Counter() 
+	{ }
+	CountTn(int c) : Counter(c)
+	{ }
+	CountTn operator ++ (int i) {
+		return CountTn(count++);
+	}
+	CountTn operator -- (int i) {
+		return CountTn(count--);
+	}
+};
+int main() {
+	CountTn c1(10);
+	CountTn c2(20);
+	c1++; c2++;
+	cout << "\nc1 = " << c1.get_count() << endl;
+	cout << "\nc2 = " << c2.get_count() << endl;
+	c1--; c2--;
+	cout << "\nc1 = " << c1.get_count() << endl;
+	cout << "\nc2 = " << c2.get_count() << endl;
+	return 0;
+}
+
 //lab8.8
 //lab8.9
 //lab8.10
