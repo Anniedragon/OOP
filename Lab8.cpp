@@ -425,6 +425,38 @@ int main() {
 }
 
 //lab8.6
+#include <iostream>
+#include <process.h>
+using namespace std;
+const int LIMIT = 100; 
+class safearay {
+protected:
+	int arr[LIMIT];
+	int b_ind, e_ind;
+public:
+	int& operator [](int n) {	
+		if (n < 0 || n >= LIMIT) {
+			cout << "\nIndex out of bounds"; 
+			exit(1);
+		}
+		return arr[n];
+	}
+};
+class safearay2 : public safearay {
+public:
+	safearay2(int b, int e) {
+		b_ind = b;
+		e_ind = e;
+	}
+};
+int main() {
+	int beg_ind, en_ind;
+	cout << "Enter the 1st and the last index of the array: ";
+	cin >> beg_ind >> en_ind;
+	safearay2* s = new safearay2(beg_ind, en_ind);
+	return 0;
+}
+
 //lab8.7
 //lab8.8
 //lab8.9
