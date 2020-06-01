@@ -339,6 +339,91 @@ int main()
 }
 
 //lab8.5
+#include <iostream>
+#include <string>
+using namespace std;
+const int LEN = 80; 
+class employee {
+private:
+	char name[LEN]; 
+	unsigned long number; 
+public:
+	void getdata() {
+		cout << "\nEnter last name: "; 
+		cin >> name;
+		cout << "Enter number: "; 
+		cin >> number;
+	}
+	void putdata() const {
+		cout << "\nName: " << name;
+		cout << "\nNumber: " << number << endl;
+	}
+};
+class employee2 : private employee {
+private:
+	double compensation;
+	int c_period;
+	enum period {hourly = 1, monthly, yearly};
+public:
+	void getdata() {
+		double com;
+		int per;
+		employee::getdata();
+		cout << "Enter the type of pay(hourly, monthly, yearly), write 1 or 2 or 3: ";
+		cin >> per;
+		switch (per) {
+		case hourly:
+			cout << "Enter the compensation: ";
+			cin >> com;
+			c_period = per;
+			compensation = com;
+			break;
+		case monthly:
+			cout << "Enter the compensation: ";
+			cin >> com;
+			c_period = per;
+			compensation = com;
+			break;
+		case yearly:
+			cout << "Enter the compensation: ";
+			cin >> com;
+			c_period = per;
+			compensation = com;
+			break;
+		default:
+			cout << "Incorrect value." << endl;
+			break;
+		}
+	}
+	void putdata() {
+		employee::putdata();
+		switch (c_period) {
+		case 1:
+			cout << "Period: hourly" << endl
+				<< "Compensation: " << compensation << endl;
+			break;
+		case 2:
+			cout << "Period: monthly" << endl
+				<< "Compensation: " << compensation << endl;
+			break;
+		case 3:
+			cout << "Period: yearly" << endl
+				<< "Compensation: " << compensation << endl;
+			break;
+		default:
+			break;
+		}
+	}
+};
+int main() {
+	employee2 em1, em2;
+	em1.getdata();
+	em2.getdata();
+	em1.putdata();
+	em2.putdata();
+	return 0;
+}
+
 //lab8.6
 //lab8.7
 //lab8.8
