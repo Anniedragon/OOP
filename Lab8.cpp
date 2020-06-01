@@ -514,6 +514,80 @@ int main() {
 
 //lab8.8
 //lab8.9
+#include <iostream>
+#include <string>
+using namespace std;
+class publication {
+private:
+	string title;
+	float price;
+public:
+	void getdata()
+	{
+		cout << "\nEnter title: "; cin >> title;
+		cout << "Enter price: "; cin >> price;
+	}
+	void putdata() const
+	{
+		cout << "\nTitle: " << title;
+		cout << "\nPrice: " << price << endl;
+	}
+};
+class publication2 : private publication {
+private:
+	string date;
+public:
+	void getdata() {
+		string d;
+		publication::getdata();
+		cout << "Enter date: ";
+		cin >> d;
+		date = d;
+	}
+	void putdata() {
+		publication::putdata();
+		cout << "Date: " << date << endl;
+	}
+};
+class book : private publication2
+{
+private:
+	int pages;
+public:
+	void getdata() {
+		publication2::getdata();
+		cout << "Enter number of pages: "; cin >> pages;
+	}
+	void putdata() {
+		publication2::putdata();
+		cout << "\nPages: " << pages;
+	}
+};
+class tape : private publication2 {
+private:
+	float time;
+public:
+	void getdata() {
+		publication2::getdata();
+		cout << "Enter playing time: "; cin >> time;
+	}
+	void putdata() {
+		publication2::putdata();
+		cout << "\nPlaying time: " << time;
+	}
+};
+int main()
+{
+	book book1;
+	tape tape1;
+	book1.getdata();
+	tape1.getdata();
+	book1.putdata();
+	tape1.putdata();
+	cout << endl;
+	return 0;
+}
+
 //lab8.10
 //lab8.11
 //lab8.12
