@@ -212,6 +212,132 @@ int main()
 }
 
 //lab8.4
+#include <iostream>
+#include <string>
+using namespace std;
+class publication
+{
+private:
+	string title;
+	float price;
+public:
+	void getdata()
+	{
+		cout << "\nEnter title: "; cin >> title;
+		cout << " Enter price: "; cin >> price;
+	}
+	void putdata() const
+	{
+		cout << "\nTitle: " << title;
+		cout << "\n Price: " << price << endl;
+	}
+};
+class sales
+{
+private:
+	enum { MONTHS = 3 };
+	float salesArr[MONTHS];
+public:
+	void getdata();
+	void putdata() const;
+};
+void sales::getdata()
+{
+	cout << " Enter sales for 3 months\n";
+	for (int j = 0; j < MONTHS; j++)
+	{
+		cout << " Month " << j + 1 << ": ";
+		cin >> salesArr[j];
+	}
+}
+void sales::putdata() const
+{
+	for (int j = 0; j < MONTHS; j++)
+	{
+		cout << "\n Sales for month " << j + 1 << ": ";
+		cout << salesArr[j];
+	}
+}
+class book : private publication, private sales
+{
+private:
+	int pages;
+public:
+	void getdata()
+	{
+		publication::getdata();
+		cout << " Enter number of pages: "; cin >> pages;
+		sales::getdata();
+	}
+	void putdata() const
+	{
+		publication::putdata();
+		cout << "\n Pages: " << pages;
+		sales::putdata();
+	}
+};
+class tape : private publication, private sales
+{
+private:
+	float time;
+public:
+	void getdata()
+	{
+		publication::getdata();
+		cout << " Enter playing time: "; cin >> time;
+		sales::getdata();
+	}
+	void putdata() const
+	{
+		publication::putdata();
+		cout << "\n Playing time: " << time;
+		sales::putdata();
+	}
+};
+class disk : private publication, private sales {
+private:
+	enum type { c = 1, d };
+	int d_type;
+public:
+	void getdata() {
+		publication::getdata();
+		int di;
+		cout << "Enter the type of the disk (CD or DVD), write 1 or 2: ";
+		cin >> di;
+		d_type = di;
+		sales::getdata();
+	}
+	void putdata() {
+		publication::putdata();
+		switch (d_type) {
+		case c:
+			cout << " Disk: CD" << endl;
+			break;
+		case d:
+			cout << " Disk: DVD" << endl;
+			break;
+		default:
+			cout << " Incorrect value.";
+			break;
+		}
+		sales::putdata();
+	}
+};
+int main()
+{
+	book book1; 
+	tape tape1;
+	disk disk1;
+	book1.getdata(); 
+	tape1.getdata();
+	disk1.getdata();
+	book1.putdata(); 
+	tape1.putdata();
+	disk1.putdata();
+	cout << endl;
+	return 0;
+}
+
 //lab8.5
 //lab8.6
 //lab8.7
