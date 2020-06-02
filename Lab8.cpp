@@ -513,6 +513,84 @@ int main() {
 }
 
 //lab8.8
+#include <iostream>
+#include <string>
+using namespace std;
+class String {
+protected:
+    int SZ = 80;
+    string str;
+public:
+    String() {
+        str[0] = '\0';
+    }
+    String(const char s[]) {
+        str = s;
+    }
+    void return_string() {
+        cout << str << endl;
+    }
+};
+class Pstring : public String {
+public:
+    Pstring(const char s[]) {
+        str = s;
+    }
+    void check_string() {
+        string s;
+        int i;
+        if (str.size() > SZ - 1) {
+            for (i = 0; i < SZ; i++) {
+                s += str[i];
+            }
+            s[i] = '\0';
+            str = s;
+            cout << "Your string is too long!" << endl;
+        }
+    }
+};
+class Pstring2 : public String {
+public:
+    Pstring2(const char s[]) {
+        str = s;
+    }
+    void left(int n) {
+        string s;
+        for (int i = n - 1; i < str.size(); i++) {
+            s += str[i];
+        }
+        str = s;
+    }
+    void right(int n) {
+        string s;
+        for (int i = 0; i < str.size() - n - 1; i++) {
+            s += str[i];
+        }
+        str = s;
+    }
+    void mid(int n, int m) {
+        string s;
+        for (int i = 0; i < str.size(); i++) {
+            if ((i < m) || (i > m+n)) {
+                s += str[i];
+            }
+        }
+        str = s;
+    }
+};
+int main() {
+    Pstring s1 = "This is a very long string which is probably no, certainly--going to exceed the limit set by SZ.";
+    s1.check_string();
+    s1.return_string();
+    Pstring s2 = "This is a short string.";
+    s2.check_string();
+    s2.return_string();
+    Pstring2 s3 = "Hello, world";
+    s3.left(4);
+    s3.return_string();
+    return 0;
+}
+
 //lab8.9
 #include <iostream>
 #include <string>
