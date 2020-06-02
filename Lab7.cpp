@@ -1008,7 +1008,7 @@ public:
 	}
 	sterling(double d) {
 		pounds = int(d);
-		pense = d - (int)d; //лол кек чебурек, что это, блять, такое?!
+		pense = d - (int)d; 
 		shillings = pense * 20;
 	}
 	sterling(double po, int s, int pe) {
