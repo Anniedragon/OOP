@@ -61,6 +61,37 @@ int main() {
 }
 
 //lab9.3
+#include <iostream>
+#include <cstring> 
+using namespace std;
+const int DAYS = 7; 
+int main() {
+	void bsort(const char**, int); 
+	char* arrptrs[DAYS] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+	cout << "\nUnsorted:\n";
+	for (int j = 0; j < DAYS; j++) 
+		cout << *(arrptrs + j) << endl;
+	bsort(arrptrs, DAYS);
+	cout << "\nSorted:\n";
+	for (int j = 0; j < DAYS; j++) 
+		cout << *(arrptrs + j) << endl;
+	return 0;
+}
+void bsort(const char** pp, int n) {
+	void order(const char**, const char**);
+	int j, k; 
+	for (j = 0; j < n - 1; j++) 
+		for (k = j + 1; k < n; k++) 
+			order(pp + j, pp + k); 
+}
+void order(const char** pp1, const char** pp2) {
+	if (strcmp(*pp1, *pp2) > 0) {
+		char* tempptr = *pp1;
+		*pp1 = *pp2;
+		*pp2 = tempptr;
+	}
+}
+
 //lab9.4
 //lab9.5
 //lab9.6
