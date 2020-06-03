@@ -144,6 +144,26 @@ int main() {
 }
 
 //lab9.5
+#include <iostream>
+using namespace std;
+void addarrays(float* ar1, float* ar2, float* ar3, int n);
+int main() {
+	const int N = 5;
+	float arr1[] = { 1.2, 1.3, 1.4, 1.5, 1.6 };
+	float arr2[] = { 2.2, 2.3, 2.4, 2.5, 2.6 };
+	float arr3[N];
+	addarrays(arr1, arr2, arr3, N);
+	return 0;
+}
+void addarrays(float* ar1, float* ar2, float* ar3, int n) {
+	for (int i = 0; i < n; i++) {
+		ar3[i] = ar1[i] + ar2[i];
+	}
+	for (int i = 0; i < n; i++) {
+		cout << ar3[i] << " ";
+	}
+}
+
 //lab9.6
 //lab9.7
 //lab9.8
