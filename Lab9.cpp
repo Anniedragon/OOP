@@ -165,6 +165,37 @@ void addarrays(float* ar1, float* ar2, float* ar3, int n) {
 }
 
 //lab9.6
+#include <iostream>
+#include <string>
+using namespace std;
+int compstr(string s1, string s2) {
+	if (s1[0] < s2[0]) {
+		return -1;
+	}
+	else if (s1[0] < s2[0]) {
+		return 0;
+	}
+	else {
+		for (int i = 1; i < 100; i++) {
+			if (s1[i] < s2[i]) {
+				return -1;
+			}
+			else if (s1[i] < s2[i]) {
+				return 0;
+			}
+		}
+	}
+}
+int main() {
+	string s1, s2;
+	cout << "Enter 1st string: ";
+	cin >> s1;
+	cout << "Enter 2nd string: ";
+	cin >> s2;
+	cout << compstr(s1, s2);
+	return 0;
+}
+
 //lab9.7
 //lab9.8
 //lab9.9
