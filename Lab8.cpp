@@ -826,7 +826,7 @@ int main() {
 	return 0; 
 }
 
-//lab8.12	DEMO!!!
+//lab8.12
 #include <iostream>
 #include <process.h>
 using namespace std;
@@ -844,10 +844,15 @@ public:
 	}
 	sterling(double d) {
 		pounds = int(d);
-		pense = d - (int)d; 
+		pense = d - (int)d;
 		shillings = pense * 20;
 	}
-	sterling(double po, int s, int pe) {
+	sterling(long po, int s, int pe) {
+		pounds = po;
+		shillings = s;
+		pense = pe;
+	}
+	void ster(long po, int s, int pe) {
 		pounds = po;
 		shillings = s;
 		pense = pe;
@@ -919,6 +924,20 @@ public:
 		}
 		return sterling(pounds, shillings, pense);
 	}
+	sterling operator * (sterling s2) {
+		pounds = pounds * s2.pounds;
+		shillings = shillings * s2.shillings;
+		pense = pense * s2.shillings;
+		while (pense >= 12) {
+			pense -= 12;
+			shillings++;
+		}
+		while (shillings >= 20) {
+			shillings -= 20;
+			pounds++;
+		}
+		return sterling(pounds, shillings, pense);
+	}
 	sterling operator / (sterling s2) {
 		pounds = pounds / s2.pounds;
 		shillings = shillings / s2.shillings;
@@ -958,48 +977,46 @@ private:
 	sterling st;
 public:
 	sterfrac(long po, int sh, int pe, int ei_ch, int ei_zn) {
-		pounds = po;
-		shillings = sh;
-		pense = pe;
+		st.ster(po, sh, pe);
 		eighths_chisl = ei_ch;
 		eighths_znam = ei_zn;
 	}
 	void get_ster() {
 		char s;
 		int ch, zn;
-		sterling::getSterling();
+		st.getSterling();
 		cout << "Enter the eighth part: ";
 		cin >> ch >> s >> zn;
 		eighths_chisl = ch;
 		eighths_znam = zn;
 	}
 	sterfrac operator + (sterfrac s2) {
-		st = sterling(pounds, shillings, pense) + sterling(s2.pounds, s2.shillings, s2.pense);
-		return sterfrac(st.put_pound(), st.put_shilling(), st.put_pense(), eighths_chisl*s2.eighths_znam+s2.eighths_chisl*eighths_znam, eighths_znam*s2.eighths_znam);
+		st = st + s2.st;
+		return sterfrac(st.put_pound(), st.put_shilling(), st.put_pense(), eighths_chisl * s2.eighths_znam + s2.eighths_chisl * eighths_znam, eighths_znam * s2.eighths_znam);
 	}
 	sterfrac operator - (sterfrac s2) {
-		st = sterling(pounds, shillings, pense) - sterling(s2.pounds, s2.shillings, s2.pense);
+		st = st - s2.st;
 		return sterfrac(st.put_pound(), st.put_shilling(), st.put_pense(), eighths_chisl * s2.eighths_znam - s2.eighths_chisl * eighths_znam, eighths_znam * s2.eighths_znam);
 	}
 	sterfrac operator * (sterfrac s2) {
-		st = sterling(pounds, shillings, pense) + sterling(s2.pounds, s2.shillings, s2.pense);
+		st = st * s2.st;
 		return sterfrac(st.put_pound(), st.put_shilling(), st.put_pense(), eighths_chisl * s2.eighths_chisl, eighths_znam * s2.eighths_znam);
 	}
 	sterfrac operator / (sterfrac s2) {
-		st = sterling(pounds, shillings, pense) + sterling(s2.pounds, s2.shillings, s2.pense);
+		st = st / s2.st;
 		return sterfrac(st.put_pound(), st.put_shilling(), st.put_pense(), eighths_chisl * s2.eighths_znam, eighths_znam * s2.eighths_chisl);
 	}
 	void put_ster() {
-		sterling::putSterling();
+		st.putSterling();
 		cout << "-" << eighths_chisl << "/" << eighths_znam << endl;
 	}
 };
-int main() {   
-	sterfrac st1(0, 0, 0, 0, 0);
-	sterfrac st2(0, 0, 0, 0, 0);
+int main() {
+	sterfrac st1(1, 2, 3, 4, 5);
+	sterfrac st2(6, 7, 8, 9, 10);
 	st1.get_ster();
 	st2.get_ster();
 	sterfrac st3 = st1 + st2;
 	st3.put_ster();
-	return 0; 
+	return 0;
 }
