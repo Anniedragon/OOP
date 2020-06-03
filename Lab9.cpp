@@ -20,7 +20,46 @@ int main() {
 	return 0;
 }
 
-//lab9.2
+//lab9.2	DON'T WORK!!!
+#include <iostream>
+#include <cstring> 
+#include <cctype> 
+using namespace std;
+class String {
+private:
+	char* str;
+public:
+	String(const char* s) {
+		int length = strlen(s); 
+		str = new char[length + 1]; 
+		strcpy(str, s); 
+	}
+	~String() {
+		delete str;
+	}
+	void display() {
+		cout << str;
+	}
+	void upit(); 
+};
+void String::upit() {
+	char* ptrch = str; 
+	while (*ptrch) {
+		*ptrch = toupper(*ptrch); 
+		ptrch++; 
+	}
+}
+int main() {
+	String s1 = "He who laughs last laughs best.";
+	cout << "\ns1="; 
+	s1.display();
+	s1.upit(); 
+	cout << "\ns1="; 
+	s1.display();
+	cout << endl;
+	return 0;
+}
+
 //lab9.3
 //lab9.4
 //lab9.5
