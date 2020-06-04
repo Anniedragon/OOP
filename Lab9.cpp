@@ -414,4 +414,41 @@ int main() {
 }
 
 //lab9.11
+#include <iostream>
+using namespace std;
+class Array {
+private:
+    int* ap[10];
+    int numarrays = 10;
+    int maxsize = 10;
+    int ind1, ind2;
+public:
+    void create_arrs() {
+        for (int i = 0; i < numarrays; i++) {
+            *(ap + i) = new int[maxsize];
+        }
+    }
+    int& operator [](int in1) {
+        int in2;
+        cout << "Enter 2nd index: ";
+        cin >> in2;
+        ind1 = in1;
+        ind2 = in2;
+        return ap[in1][in2];
+    }
+    void return_el() {
+        cout << ap[ind1][ind2] << endl;
+    }
+};
+int main() {
+    Array arr;
+    int ind1, value;
+    arr.create_arrs();
+    cout << "Enter the 1st index and the value: ";
+    cin >> ind1 >> value;
+    arr[ind1] = value;
+    arr.return_el();
+    return 0;
+}
+
 //lab9.12
