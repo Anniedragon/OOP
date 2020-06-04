@@ -452,3 +452,48 @@ int main() {
 }
 
 //lab9.12
+#include <iostream>
+#include <cmath>
+using namespace std;
+float fmemory[500];
+int fmem_top = 0;
+int pmemory[500];
+int pmem_top = 0;
+class ptrFloat {
+private:
+	int addr;
+public:
+	ptrFloat(int ptr) {
+		pmemory[pmem_top] = ptr;
+		addr = pmem_top++;
+	}
+	float& operator *() {
+		return fmemory[pmemory[addr]];
+	}
+};
+class Float {
+private:
+	int addr;
+public:
+	Float(float element) {
+		int i = 0;
+		fmemory[fmem_top] = element;
+		addr = fmem_top++;
+	}
+	ptrFloat operator &() {
+		return ptrFloat(addr);
+	}
+};
+int main() {
+	Float value1 = 1.234;
+	Float value2 = 5.678;
+	ptrFloat ptr1 = &value1;
+	ptrFloat ptr2 = &value2;
+	cout << "*ptr1 =  " << *ptr1 << endl;
+	cout << "*ptr2 =  " << *ptr2 << endl;
+	*ptr1 = 7.123;
+	*ptr2 = 8.456;
+	cout << "*ptr1 =  " << *ptr1 << endl;
+	cout << "*ptr2 =  " << *ptr2 << endl;
+	return 0;
+}
