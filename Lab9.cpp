@@ -390,5 +390,28 @@ int main() {
 }
 
 //lab9.10
+#include <iostream>
+using namespace std;
+int main() {
+    int N = 10;
+    const int numarrays = 10;
+    int* ap[numarrays];
+    for (int i = 0; i < numarrays; i++) {
+        *(ap + i) = new int[N];
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            ap[i][j] = i;
+        }
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            cout << ap[i][j] << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+
 //lab9.11
 //lab9.12
