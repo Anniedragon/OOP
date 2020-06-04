@@ -282,7 +282,7 @@ void salsort(person** pp, int n) {
 	}	
 }
 
-//lab9.8	DEMO!!! DON'T WORK!!!
+//lab9.8
 #include <iostream>
 using namespace std;
 struct link
@@ -292,30 +292,34 @@ struct link
 };
 class linklist {
 private:
-    link* first;
-    link* cfirst;
+    link* first = new link;
+    link* cfirst = new link;
+    int lock = 0;
 public:
     linklist() {
-        first = NULL;
     }
     void additem(int d);
     void display();
 };
 void linklist::additem(int d) {
-    if (first == NULL) {
+    if (lock == 0) {
         link* first = new link;
         link* cfirst = first;
     }
     link* newlink = new link;
     newlink->data = d;
-    cfirst->next = newlink;
-    cfirst = newlink;
+    first->next = newlink;
+    if (lock == 0) {
+        cfirst = first;
+        lock = 1;
+    }
+    first = newlink;
 }
 void linklist::display() {
-    link* current = first;
     link* end = NULL;
-    first->next = end; 
-    first = first->next; 
+    first->next = end;
+    cfirst = cfirst->next;
+    link* current = cfirst;
     while (current != NULL) {
         cout << current->data << endl;
         current = current->next;
