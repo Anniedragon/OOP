@@ -332,6 +332,59 @@ int main() {
 }
 
 //lab9.9
+#include <iostream>
+using namespace std;
+int main() {
+    int a0[10];
+    for (int i = 0; i < 10; i++) {
+        a0[i] = 0;
+    }
+    int a1[10];
+    for (int i = 0; i < 10; i++) {
+        a1[i] = 1;
+    }
+    int a2[10];
+    for (int i = 0; i < 10; i++) {
+        a2[i] = 2;
+    }
+    int a3[10];
+    for (int i = 0; i < 10; i++) {
+        a3[i] = 3;
+    }
+    int a4[10];
+    for (int i = 0; i < 10; i++) {
+        a4[i] = 4;
+    }
+    int a5[10];
+    for (int i = 0; i < 10; i++) {
+        a5[i] = 5;
+    }
+    int a6[10];
+    for (int i = 0; i < 10; i++) {
+        a6[i] = 6;
+    }
+    int a7[10];
+    for (int i = 0; i < 10; i++) {
+        a7[i] = 7;
+    }
+    int a8[10];
+    for (int i = 0; i < 10; i++) {
+        a8[i] = 8;
+    }
+    int a9[10];
+    for (int i = 0; i < 10; i++) {
+        a9[i] = 9;
+    }
+    int* ap[10] = { a0, a1, a2, a3, a4, a5, a6, a7, a8, a9 };
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            cout << ap[i][j] << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+
 //lab9.10
 //lab9.11
 //lab9.12
