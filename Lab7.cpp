@@ -390,29 +390,19 @@ public:
 		int s = secs--;
 		int m = mins;
 		int h = hrs;
-		if (s > 59) {
-			s -= 60;
-			m++;
+		if (s < 0) {
+			cout << "Time can't be less than zero!" << endl;
 		}
-		if (m > 59) {
-			m -= 60;
-			h++;
-		}
-		return time(h, m, s);
+		else return time(h, m, s);
 	}
 	time operator-- (int i) {
 		int s = secs--;
 		int m = mins;
 		int h = hrs;
-		if (s > 59) {
-			s -= 60;
-			m++;
+		if (s < 0) {
+			cout << "Time can't be less than zero!" << endl;
 		}
-		if (m > 59) {
-			m -= 60;
-			h++;
-		}
-		return time(h, m, s);
+		else return time(h, m, s);
 	}
 };
 int main()
