@@ -299,6 +299,378 @@ int main() {
 }
 
 //lab10.6
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+class bMoney {
+private:
+	long double money;
+	string sum;
+public:
+	bMoney() {
+		money = 0;
+	}
+	bMoney(string u_sum) {
+		money = mstold(u_sum);
+	}
+	bMoney(long double d) {
+		money = d;
+	}
+	void getmoney() {
+		string u_money;
+		cout << "Enter a money string: ";
+		cin >> u_money;
+		money = mstold(u_money);
+	}
+	long double mstold(string u_sum) {
+		sum = u_sum;
+		string s;
+		int len;
+		len = sum.size() - 3;
+		for (int i = 0; i < len; i++) {
+			if ((sum[i] != '$') && (sum[i] != ',')) {
+				if ((sum[i] == '.') && (i + 2 == len - 1)) {
+					s += sum[i];
+				}
+				else s += sum[i];
+			}
+		}
+		len = s.size();
+		long double pow = len - 1;
+		long double result = 0;
+		int temp = 0;
+		for (int i = 0; i < len; i++) {
+			switch (s[i]) {
+			case '1':
+				temp = 1;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '2':
+				temp = temp * 2;
+				for (int j = 0; j < pow; j++) {
+					temp = temp * 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '3':
+				temp = 3;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '4':
+				temp = 4;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '5':
+				temp = 5;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '6':
+				temp = 6;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '7':
+				temp = 7;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '8':
+				temp = 8;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			case '9':
+				temp = 9;
+				for (int j = 0; j < pow; j++) {
+					temp *= 10;
+				}
+				result += temp;
+				temp = 1;
+				break;
+			default:
+				break;
+			}
+			pow--;
+		}
+		long double result1 = 0;
+		pow = 0.1;
+		for (int i = s.size() - 2; i <= s.size() - 1; i++) {
+			switch (s[i]) {
+			case '1':
+				temp = 1;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '2':
+				temp = 2;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '3':
+				temp = 3;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '4':
+				temp = 4;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '5':
+				temp = 5;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '6':
+				temp = 6;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '7':
+				temp = 7;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '8':
+				temp = 8;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			case '9':
+				temp = 9;
+				result1 += temp * pow;
+				temp = 1;
+				break;
+			}
+			pow /= 10;
+		}
+		result += result1;
+		money = result;
+		return money;
+	}
+	void ldtoms(long double sum) {
+		string ustring, sum_string;
+		char temp;
+		long double cel, drob;
+		int ch = 0;
+		drob = modf(sum, &cel);
+		int sum1 = cel;
+		int count = 0;
+		while (sum1 != 0) {
+			sum1 /= 10;
+			count++;
+		}
+		int cel_int = int(cel);
+		for (int i = 0; i < count; i++) {
+			ch = cel_int % 10;
+			switch (ch) {
+			case 1:
+				ustring += '1';
+				break;
+			case 2:
+				ustring += '2';
+				break;
+			case 3:
+				ustring += '3';
+				break;
+			case 4:
+				ustring += '4';
+				break;
+			case 5:
+				ustring += '5';
+				break;
+			case 6:
+				ustring += '6';
+				break;
+			case 7:
+				ustring += '7';
+				break;
+			case 8:
+				ustring += '8';
+				break;
+			case 9:
+				ustring += '9';
+				break;
+			case 0:
+				ustring += '0';
+				break;
+			}
+			cel_int /= 10;
+		}
+		for (int i = 0; i < count / 2; i++) {
+			temp = ustring[i];
+			ustring[i] = ustring[count - i - 1];
+			ustring[count - i - 1] = temp;
+		}
+		ustring += '.';
+		drob *= 10;
+		long double drob_cel, drob_drob;
+		drob_drob = modf(drob, &drob_cel);
+		int drob_cel_int = int(drob_cel);
+		drob_drob *= 10;
+		int drob_drob_int = int(drob_drob);
+		switch (drob_cel_int) {
+		case 1:
+			ustring += '1';
+			break;
+		case 2:
+			ustring += '2';
+			break;
+		case 3:
+			ustring += '3';
+			break;
+		case 4:
+			ustring += '4';
+			break;
+		case 5:
+			ustring += '5';
+			break;
+		case 6:
+			ustring += '6';
+			break;
+		case 7:
+			ustring += '7';
+			break;
+		case 8:
+			ustring += '8';
+			break;
+		case 9:
+			ustring += '9';
+			break;
+		case 0:
+			ustring += '0';
+			break;
+		}
+		switch (drob_drob_int) {
+		case 1:
+			ustring += '1';
+			break;
+		case 2:
+			ustring += '2';
+			break;
+		case 3:
+			ustring += '3';
+			break;
+		case 4:
+			ustring += '4';
+			break;
+		case 5:
+			ustring += '5';
+			break;
+		case 6:
+			ustring += '6';
+			break;
+		case 7:
+			ustring += '7';
+			break;
+		case 8:
+			ustring += '8';
+			break;
+		case 9:
+			ustring += '9';
+			break;
+		case 0:
+			ustring += '0';
+			break;
+		}
+		sum_string += '$';
+		int k = 0;
+		for (int i = 0; i < count + 3; i++) {
+			if (ustring[i + 1] == '.') {
+				sum_string += ustring[i];
+				k = 0;
+			}
+			else sum_string += ustring[i];
+			k++;
+			if ((k == 3) && (ustring[i + 1] != '.') && (i < count)) {
+				sum_string += ',';
+				k = 0;
+			}
+		}
+		sum_string[count + 5] = '\0';
+		cout << sum_string << endl;
+	}
+	bMoney operator + (bMoney b2) {
+		money = money + b2.money;
+		return money;
+	}
+	bMoney operator - (bMoney b2) {
+		money = abs(money - b2.money);
+		return money;
+	}
+	bMoney operator * (long double b2) {
+		money = money * b2;
+		return money;
+	}
+	bMoney operator / (bMoney b2) {
+		money = money / b2.money;
+		return money;
+	}
+	bMoney operator / (long double b2) {
+		money = money / b2;
+		return money;
+	}
+	friend bMoney operator * (long double m1, bMoney b2) {
+		return bMoney(m1 * b2.money);
+	}
+	friend bMoney operator / (long double m1, bMoney b2) {
+		return bMoney(m1 / b2.money);
+	}
+	void putmoney() {
+		cout << money << endl;
+	}
+};
+int main() {
+	bMoney m1, m2, m3;
+	long double amount;
+	m1.getmoney();
+	m2.getmoney();
+	cout << "Enter amount: ";
+	cin >> amount;
+	m3 = m1 + m2;
+	m3.putmoney();
+	m3 = m1 - m2;
+	m3.putmoney();
+	m3 = m1 * amount;
+	m3.putmoney();
+	m3 = m1 / m2;
+	m3.putmoney();
+	m3 = m1 / amount;
+	m3.putmoney();
+	m3 = amount / m1;
+	m3.putmoney();
+	m3 = amount * m1;
+	m3.putmoney();
+	return 0;
+}
+
 //lab10.7
 //lab10.8
 //lab10.9
