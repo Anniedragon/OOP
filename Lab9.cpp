@@ -456,12 +456,11 @@ int main() {
 #include <cmath>
 using namespace std;
 float fmemory[500];
-int fmem_top = 0;
 int pmemory[500];
-int pmem_top = 0;
 class ptrFloat {
 private:
 	int addr;
+	int pmem_top = 0;
 public:
 	ptrFloat(int ptr) {
 		pmemory[pmem_top] = ptr;
@@ -473,6 +472,7 @@ public:
 };
 class Float {
 private:
+	int fmem_top = 0;
 	int addr;
 public:
 	Float(float element) {
