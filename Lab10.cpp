@@ -209,7 +209,95 @@ int main() {
 	return 0;
 }
 
-//lab10.5
+//lab10.5	DEMO!!!
+#include <iostream>
+#include <string>
+using namespace std;
+class publication {
+private:
+	string title;
+	float price;
+public:
+	virtual void getdata() {
+		cout << "Enter title: ";
+		cin >> title;
+		cout << "Enter price: ";
+		cin >> price;
+	}
+	virtual void putdata() {
+		cout << "\nTitle: " << title;
+		cout << "\nPrice: " << price << endl;
+	}
+	virtual bool isOveerSize() {
+		return 0;
+	}
+};
+class book : public publication {
+private:
+	int pages;
+public:
+	void getdata() {
+		publication::getdata();
+		cout << "Enter number of pages: "; 
+		cin >> pages;
+	}
+	void putdata() {
+		publication::putdata();
+		cout << "Pages: " << pages << endl;
+	}
+	bool isOveersize() {
+		if (pages > 800) {
+			cout << "Too much pages!";
+			return 1;
+		}
+		return 0;
+	}
+};
+class tape : public publication {
+private:
+	float time;
+public:
+	void getdata() {
+		publication::getdata();
+		cout << "Enter playing time: ";
+		cin >> time;
+	}
+	void putdata() {
+		publication::putdata();
+		cout << "Playing time: " << time;
+	}
+	bool isOveersize() {
+		if (time > 90) {
+			cout << "Too much minutes!";
+			return 1;
+		}
+		return 0;
+	}
+};
+int main() {
+	publication* pubarr[100];
+	int n = 0;
+	int j;
+	char choice;
+	do {
+		cout << "\nEnter data for book or tape (b/t)? ";
+		cin >> choice;
+		if (choice == 'b')
+			pubarr[n] = new book;
+		else
+			pubarr[n] = new tape;
+		pubarr[n++]->getdata();
+		cout << "Enter another (y/n)? ";
+		cin >> choice;
+	} while (choice == 'y');
+	for (j = 0; j < n; j++) {
+		pubarr[j]->isOveerSize();
+		pubarr[j]->putdata();
+	}	
+	cout << endl;
+	return 0;
+}
+
 //lab10.6
 //lab10.7
 //lab10.8
