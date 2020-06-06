@@ -1056,6 +1056,73 @@ int main() {
 }
 
 //lab10.8
+#include <iostream>
+using namespace std;
+class token {
+public:
+	virtual float getnumber() = 0;
+	virtual char getoperator() = 0;
+};
+class Operator : public token {
+private:
+	char oper;
+public:
+	Operator(char op) {
+		oper = op;
+	}
+	char getoperator() {
+		return oper;
+	}
+	float getnumber() {
+		return 0;
+	}
+};
+class number : public token {
+private:
+	float fnum;
+public:
+	number(float fn) {
+		fnum = fn;
+	}
+	float getnumber() {
+		return fnum;
+	}
+	char getoperator() {
+		return 0;
+	}
+};
+class Stack : public token {
+private:
+	token* atoken[100];
+	int top;
+public:
+	Stack() {
+		top = -1;
+	}
+	void push(float var) {
+		atoken[++top] = new number(var);
+	}
+	void push(char var) {
+		atoken[++top] = new Operator(var);
+	}
+	float pop(int useless) {
+		return atoken[top--]->getnumber();
+	}
+	char pop(float useless) {
+		return atoken[top--]->getoperator();
+	}
+	int return_top() {
+		return top;
+	}
+};
+int main() {
+	Operator op1('+');
+	number num1(3.45);
+	cout << op1.getoperator() << endl;
+	cout << num1.getnumber() << endl;
+	return 0;
+}
+
 //lab10.9
 //lab10.10
 //lab10.11
